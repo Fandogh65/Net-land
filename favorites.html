@@ -1,0 +1,2020 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+
+<head>
+
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <title>علاقه‌مندی‌ها | نت لند</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+
+  <link
+    rel="preconnect"
+    href="https://fonts.gstatic.com"
+    crossorigin
+  >
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet"
+  >
+
+  <style>
+
+    :root {
+      --primary: #6d35e8;
+      --primary-2: #8255f3;
+      --primary-light: #f0ebff;
+
+      --green: #25b96f;
+      --green-light: #e9f9f0;
+
+      --orange: #f3a623;
+      --orange-light: #fff3dc;
+
+      --bg: #f8f8fc;
+      --white: #ffffff;
+
+      --text: #20202a;
+      --text-secondary: #6f7180;
+      --text-muted: #999ba8;
+
+      --border: #ececf3;
+
+      --shadow-sm:
+        0 5px 18px rgba(40, 30, 80, 0.05);
+
+      --shadow-md:
+        0 12px 30px rgba(70, 40, 140, 0.12);
+
+      --radius-lg: 26px;
+      --radius-md: 22px;
+      --radius-sm: 15px;
+
+      --container: 1100px;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: "Vazirmatn", sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      min-height: 100vh;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    button,
+    input {
+      font-family: inherit;
+    }
+
+    button {
+      border: 0;
+      cursor: pointer;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .app {
+      width: 100%;
+      max-width: var(--container);
+      min-height: 100vh;
+      margin: 0 auto;
+      padding-bottom: 110px;
+    }
+
+    /* =========================================
+       HEADER با لوگوی NET LAND (مشابه ایندکس)
+    ========================================= */
+    .header {
+      height: 76px;
+      padding: 0 22px;
+      background: var(--white);
+      display: grid;
+      grid-template-columns: 0.8fr auto 1.5fr;
+      align-items: center;
+      position: relative;
+      z-index: 20;
+    }
+
+    .header-side {
+      display: flex;
+      align-items: center;
+    }
+    .header-side.left { justify-content: flex-start; }
+    .header-side.right { justify-content: flex-end; }
+
+    .icon-button {
+      width: 44px;
+      height: 44px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 14px;
+      background: transparent;
+      color: #343441;
+      transition: .2s ease;
+    }
+    .icon-button:hover { background: #f5f3fa; color: var(--primary); }
+
+    .notification { position: relative; }
+    .notification-dot {
+      position: absolute;
+      top: 8px;
+      right: 8px;
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: var(--primary);
+      border: 2px solid white;
+    }
+
+    /* ===== لوگوی Net Land (همون ایندکس) ===== */
+    .netland-header-logo {
+      width: 190px;
+      height: 75px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      overflow: visible;
+    }
+
+    .netland-logo-svg {
+      width: 100%;
+      height: 100%;
+      display: block;
+      user-select: none;
+      -webkit-user-select: none;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    @media (max-width: 700px) {
+      .netland-header-logo {
+        width: 155px;
+        height: 60px;
+      }
+    }
+
+    @media (max-width: 400px) {
+      .netland-header-logo {
+        width: 140px;
+        height: 55px;
+      }
+    }
+
+    /* Main */
+
+    main {
+      padding: 0 20px;
+    }
+
+    /* Page intro */
+
+    .page-intro {
+      margin-top: 20px;
+
+      padding: 24px 23px;
+
+      border-radius: var(--radius-lg);
+
+      background:
+        radial-gradient(
+          circle at 90% 10%,
+          rgba(143, 108, 255, .45),
+          transparent 32%
+        ),
+        linear-gradient(
+          135deg,
+          #5927d9 0%,
+          #713deb 55%,
+          #8255f3 100%
+        );
+
+      color: white;
+
+      box-shadow:
+        0 14px 35px rgba(86, 42, 180, 0.16);
+
+      position: relative;
+      overflow: hidden;
+    }
+
+    .page-intro::after {
+      content: "";
+
+      position: absolute;
+
+      width: 150px;
+      height: 150px;
+
+      left: -55px;
+      bottom: -75px;
+
+      border-radius: 50%;
+
+      background: rgba(255,255,255,.08);
+    }
+
+    .page-intro-content {
+      position: relative;
+      z-index: 2;
+    }
+
+    .page-title {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+
+      font-size: 23px;
+      font-weight: 800;
+
+      margin-bottom: 7px;
+    }
+
+    .page-title svg {
+      flex-shrink: 0;
+    }
+
+    .page-description {
+      max-width: 600px;
+
+      color: rgba(255,255,255,.82);
+
+      font-size: 12.5px;
+      line-height: 1.9;
+    }
+
+    /* Section */
+
+    .section-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+
+      margin-top: 27px;
+      margin-bottom: 14px;
+    }
+
+    .section-title {
+      display: flex;
+      align-items: center;
+      gap: 9px;
+
+      font-size: 20px;
+      font-weight: 700;
+    }
+
+    .section-title svg {
+      color: var(--primary);
+    }
+
+    .favorite-count {
+      min-width: 30px;
+      height: 27px;
+
+      padding: 0 9px;
+
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+
+      border-radius: 10px;
+
+      background: var(--primary-light);
+      color: var(--primary);
+
+      font-size: 11px;
+      font-weight: 700;
+    }
+
+    /* Favorites list */
+
+    .favorites-list {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .favorite-card {
+      position: relative;
+
+      display: grid;
+      grid-template-columns: 72px 1fr auto;
+
+      align-items: center;
+
+      gap: 15px;
+
+      min-height: 132px;
+
+      padding: 17px;
+
+      background: var(--white);
+
+      border: 1px solid var(--border);
+
+      border-radius: var(--radius-md);
+
+      box-shadow: var(--shadow-sm);
+
+      transition:
+        transform .22s ease,
+        box-shadow .22s ease;
+    }
+
+    .favorite-card:hover {
+      transform: translateY(-3px);
+
+      box-shadow:
+        0 10px 26px rgba(40,30,80,.08);
+    }
+
+    .favorite-icon {
+      width: 64px;
+      height: 64px;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      border-radius: 18px;
+
+      flex-shrink: 0;
+    }
+
+    .favorite-icon.purple {
+      background: #f2ecff;
+      color: var(--primary);
+    }
+
+    .favorite-icon.green {
+      background: var(--green-light);
+      color: var(--green);
+    }
+
+    .favorite-icon.orange {
+      background: var(--orange-light);
+      color: var(--orange);
+    }
+
+    .favorite-content {
+      min-width: 0;
+    }
+
+    .favorite-badge {
+      width: fit-content;
+
+      display: inline-flex;
+
+      padding: 5px 9px;
+
+      margin-bottom: 6px;
+
+      border-radius: 9px;
+
+      font-size: 11px;
+      font-weight: 600;
+    }
+
+    .badge-purple {
+      color: var(--primary);
+      background: var(--primary-light);
+    }
+
+    .badge-green {
+      color: #21a563;
+      background: var(--green-light);
+    }
+
+    .badge-orange {
+      color: #dc9419;
+      background: var(--orange-light);
+    }
+
+    .favorite-title {
+      color: var(--text);
+
+      font-size: 17px;
+      font-weight: 700;
+
+      margin-bottom: 5px;
+
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .favorite-description {
+      color: var(--text-secondary);
+
+      font-size: 12.5px;
+      line-height: 1.7;
+
+      margin-bottom: 8px;
+    }
+
+    .favorite-meta {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+
+      color: var(--text-muted);
+
+      font-size: 11px;
+    }
+
+    .favorite-meta svg {
+      color: #8b8c98;
+    }
+
+    /* Actions */
+
+    .favorite-actions {
+      display: flex;
+      flex-direction: column;
+
+      align-items: flex-end;
+      justify-content: center;
+
+      gap: 10px;
+    }
+
+    .favorite-action {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+
+      color: var(--primary);
+
+      font-size: 12px;
+      font-weight: 600;
+
+      white-space: nowrap;
+
+      background: transparent;
+
+      transition: .2s ease;
+    }
+
+    .favorite-action:hover {
+      gap: 7px;
+    }
+
+    .remove-button {
+      width: 42px;
+      height: 42px;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      border-radius: 14px;
+
+      background: #f7f6fb;
+      color: #8c8d9b;
+
+      transition: .2s ease;
+    }
+
+    .remove-button:hover {
+      background: var(--primary-light);
+      color: var(--primary);
+
+      transform: scale(1.04);
+    }
+
+    /* Empty state */
+
+    .empty-state {
+      display: none;
+
+      min-height: 330px;
+
+      padding: 35px 20px;
+
+      align-items: center;
+      justify-content: center;
+
+      flex-direction: column;
+
+      text-align: center;
+
+      background: var(--white);
+
+      border: 1px solid var(--border);
+
+      border-radius: var(--radius-md);
+
+      box-shadow: var(--shadow-sm);
+    }
+
+    .empty-state.show {
+      display: flex;
+    }
+
+    .empty-icon {
+      width: 82px;
+      height: 82px;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      border-radius: 25px;
+
+      background: var(--primary-light);
+      color: var(--primary);
+
+      margin-bottom: 18px;
+    }
+
+    .empty-title {
+      font-size: 18px;
+      font-weight: 700;
+
+      margin-bottom: 7px;
+    }
+
+    .empty-text {
+      max-width: 390px;
+
+      color: var(--text-secondary);
+
+      font-size: 12px;
+      line-height: 1.9;
+
+      margin-bottom: 20px;
+    }
+
+    .empty-button {
+      min-height: 44px;
+
+      padding: 0 19px;
+
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+
+      border-radius: 14px;
+
+      background: var(--primary);
+
+      color: white;
+
+      font-size: 13px;
+      font-weight: 700;
+
+      box-shadow:
+        0 7px 17px rgba(109,53,232,.22);
+
+      transition: .2s ease;
+    }
+
+    .empty-button:hover {
+      background: var(--primary-2);
+
+      transform: translateY(-2px);
+    }
+
+    /* Bottom info */
+
+    .info-card {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+
+      align-items: stretch;
+
+      margin-top: 22px;
+
+      padding: 18px;
+
+      background: #f2edff;
+
+      border-radius: var(--radius-md);
+
+      border: 1px solid #e8defc;
+    }
+
+    .info-item {
+      display: flex;
+      flex-direction: column;
+
+      align-items: center;
+      justify-content: center;
+
+      text-align: center;
+
+      padding: 4px 12px;
+
+      gap: 7px;
+    }
+
+    .info-item + .info-item {
+      border-right: 1px solid #ddd6f2;
+    }
+
+    .info-icon {
+      width: 36px;
+      height: 36px;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      border-radius: 12px;
+
+      color: var(--primary);
+
+      background: white;
+    }
+
+    .info-title {
+      font-size: 13px;
+      font-weight: 700;
+    }
+
+    .info-text {
+      color: var(--text-secondary);
+
+      font-size: 10px;
+      line-height: 1.7;
+    }
+
+    /* Bottom navigation */
+
+    .bottom-nav-wrapper {
+      position: fixed;
+
+      bottom: 0;
+      left: 0;
+      right: 0;
+
+      z-index: 100;
+
+      display: flex;
+      justify-content: center;
+
+      pointer-events: none;
+    }
+
+    .bottom-nav {
+      width: min(var(--container), 100%);
+
+      height: 82px;
+
+      padding:
+        8px
+        25px
+        calc(8px + env(safe-area-inset-bottom));
+
+      background: white;
+
+      border-radius: 26px 26px 0 0;
+
+      box-shadow:
+        0 -7px 25px rgba(30,20,70,.07);
+
+      display: grid;
+
+      grid-template-columns:
+        repeat(4, 1fr);
+
+      align-items: center;
+
+      pointer-events: auto;
+    }
+
+    .nav-item {
+      display: flex;
+
+      flex-direction: column;
+
+      align-items: center;
+      justify-content: center;
+
+      gap: 3px;
+
+      color: #858693;
+
+      font-size: 10.5px;
+      font-weight: 500;
+
+      cursor: pointer;
+
+      height: 100%;
+
+      transition: .2s ease;
+
+      background: transparent;
+    }
+
+    .nav-item:hover {
+      color: var(--primary);
+    }
+
+    .nav-icon {
+      width: 25px;
+      height: 25px;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .nav-item.active {
+      color: var(--primary);
+      font-weight: 600;
+    }
+
+    .nav-item.active .nav-icon {
+      width: 46px;
+      height: 42px;
+
+      border-radius: 15px;
+
+      color: white;
+      background: var(--primary);
+
+      box-shadow:
+        0 7px 17px rgba(109,53,232,.28);
+    }
+
+    /* Toast */
+
+    .toast {
+      position: fixed;
+
+      left: 50%;
+      bottom: 102px;
+
+      transform:
+        translateX(-50%)
+        translateY(12px);
+
+      z-index: 9999;
+
+      padding: 11px 18px;
+
+      border-radius: 14px;
+
+      background: #20202a;
+      color: white;
+
+      font-size: 12px;
+
+      box-shadow:
+        0 10px 30px rgba(0,0,0,.15);
+
+      opacity: 0;
+
+      transition:
+        opacity .25s ease,
+        transform .25s ease;
+
+      white-space: nowrap;
+    }
+
+    .toast.show {
+      opacity: 1;
+
+      transform:
+        translateX(-50%)
+        translateY(0);
+    }
+
+    /* Responsive */
+
+    @media (max-width: 700px) {
+
+      .app {
+        max-width: 100%;
+      }
+
+      .page-intro {
+        margin-top: 15px;
+
+        padding: 22px 19px;
+      }
+
+      .page-title {
+        font-size: 21px;
+      }
+
+      .page-description {
+        font-size: 11.5px;
+      }
+
+      .favorite-card {
+        grid-template-columns: 58px 1fr;
+
+        gap: 12px;
+
+        padding: 14px;
+      }
+
+      .favorite-icon {
+        width: 58px;
+        height: 58px;
+      }
+
+      .favorite-actions {
+        grid-column: 2;
+
+        flex-direction: row;
+
+        align-items: center;
+        justify-content: space-between;
+
+        width: 100%;
+
+        margin-top: -2px;
+      }
+
+      .favorite-title {
+        font-size: 15px;
+      }
+
+      .favorite-description {
+        font-size: 11.5px;
+      }
+
+      .remove-button {
+        width: 40px;
+        height: 40px;
+      }
+
+      .info-card {
+        padding: 14px 8px;
+      }
+
+      .info-item {
+        padding: 3px 6px;
+      }
+
+      .info-title {
+        font-size: 11px;
+      }
+
+      .info-text {
+        font-size: 9px;
+      }
+
+      .bottom-nav {
+        padding-left: 12px;
+        padding-right: 12px;
+      }
+
+    }
+
+    @media (max-width: 400px) {
+
+      main {
+        padding: 0 14px;
+      }
+
+      .header {
+        padding: 0 14px;
+      }
+
+      .page-intro {
+        padding: 20px 17px;
+      }
+
+      .favorite-card {
+        grid-template-columns: 54px 1fr;
+      }
+
+      .favorite-icon {
+        width: 54px;
+        height: 54px;
+      }
+
+      .info-card {
+        margin-top: 18px;
+      }
+
+    }
+
+    @supports (padding-bottom: env(safe-area-inset-bottom)) {
+
+      .app {
+        padding-bottom:
+          calc(
+            110px +
+            env(safe-area-inset-bottom)
+          );
+      }
+
+    }
+
+  </style>
+
+</head>
+
+<body>
+
+<div class="app">
+
+  <!-- ===== HEADER با لوگوی NET LAND (همون ایندکس) ===== -->
+  <header class="header">
+
+    <div class="header-side left">
+
+      <button
+        class="icon-button"
+        aria-label="بازگشت به خانه"
+        onclick="window.location.href='index.html'"
+      >
+
+        <svg
+          width="24"
+          height="24"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="1.8"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        >
+
+          <path d="m15 18-6-6 6-6"/>
+
+        </svg>
+
+      </button>
+
+    </div>
+
+    <!-- ===== لوگوی Net Land (همون ایندکس) ===== -->
+    <div class="netland-header-logo" aria-label="Net Land">
+      <img 
+        src="data:image/svg+xml;charset=UTF-8,%3Csvg xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' width='760' height='300' viewBox='0 0 760 300' fill='none' role='img'%3E%3Cdefs%3E%3ClinearGradient id='NMainGradient' x1='95' y1='45' x2='315' y2='255' gradientUnits='userSpaceOnUse'%3E%3Cstop offset='0' stop-color='%23E5B5FF'/%3E%3Cstop offset='0.16' stop-color='%23C56EFF'/%3E%3Cstop offset='0.38' stop-color='%23963FEF'/%3E%3Cstop offset='0.63' stop-color='%237130DE'/%3E%3Cstop offset='0.82' stop-color='%235520B9'/%3E%3Cstop offset='1' stop-color='%23351080'/%3E%3C/linearGradient%3E%3ClinearGradient id='NLeftGradient' x1='70' y1='70' x2='180' y2='245' gradientUnits='userSpaceOnUse'%3E%3Cstop offset='0' stop-color='%23D99AFF'/%3E%3Cstop offset='0.3' stop-color='%23A950F5'/%3E%3Cstop offset='0.65' stop-color='%237B2FE1'/%3E%3Cstop offset='1' stop-color='%234816A5'/%3E%3C/linearGradient%3E%3ClinearGradient id='NRightGradient' x1='245' y1='45' x2='310' y2='260' gradientUnits='userSpaceOnUse'%3E%3Cstop offset='0' stop-color='%23C987FF'/%3E%3Cstop offset='0.28' stop-color='%239745F3'/%3E%3Cstop offset='0.65' stop-color='%236727D0'/%3E%3Cstop offset='1' stop-color='%233D128D'/%3E%3C/linearGradient%3E%3ClinearGradient id='NHighlight' x1='105' y1='55' x2='210' y2='185' gradientUnits='userSpaceOnUse'%3E%3Cstop offset='0' stop-color='%23FFFFFF' stop-opacity='.78'/%3E%3Cstop offset='.22' stop-color='%23F3D9FF' stop-opacity='.46'/%3E%3Cstop offset='.55' stop-color='%23D9A4FF' stop-opacity='.12'/%3E%3Cstop offset='1' stop-color='%23FFFFFF' stop-opacity='0'/%3E%3C/linearGradient%3E%3ClinearGradient id='OrbitGradient' x1='25' y1='215' x2='370' y2='125' gradientUnits='userSpaceOnUse'%3E%3Cstop offset='0' stop-color='%23B63DCC'/%3E%3Cstop offset='.18' stop-color='%23E65BE5'/%3E%3Cstop offset='.42' stop-color='%23FF8AF2'/%3E%3Cstop offset='.62' stop-color='%23F16CEB'/%3E%3Cstop offset='.84' stop-color='%23B846D7'/%3E%3Cstop offset='1' stop-color='%237D25BD'/%3E%3C/linearGradient%3E%3ClinearGradient id='OrbitHighlight' x1='75' y1='180' x2='290' y2='125' gradientUnits='userSpaceOnUse'%3E%3Cstop offset='0' stop-color='%23FF9CF7' stop-opacity='0'/%3E%3Cstop offset='.45' stop-color='%23FFD7FC' stop-opacity='.95'/%3E%3Cstop offset='1' stop-color='%23FFFFFF' stop-opacity='.25'/%3E%3C/linearGradient%3E%3ClinearGradient id='NetGradient' x1='405' y1='65' x2='540' y2='145' gradientUnits='userSpaceOnUse'%3E%3Cstop offset='0' stop-color='%23FFFFFF'/%3E%3Cstop offset='.65' stop-color='%23F8F8FF'/%3E%3Cstop offset='1' stop-color='%23D9D9EA'/%3E%3C/linearGradient%3E%3ClinearGradient id='LandGradient' x1='410' y1='150' x2='555' y2='235' gradientUnits='userSpaceOnUse'%3E%3Cstop offset='0' stop-color='%23E0A1FF'/%3E%3Cstop offset='.3' stop-color='%23C66DFF'/%3E%3Cstop offset='.62' stop-color='%23A445F1'/%3E%3Cstop offset='1' stop-color='%237624D7'/%3E%3C/linearGradient%3E%3CradialGradient id='SphereGradient' cx='0' cy='0' r='1' gradientUnits='userSpaceOnUse' gradientTransform='translate(335 232) rotate(135) scale(28)'%3E%3Cstop offset='0' stop-color='%23FFE5FF'/%3E%3Cstop offset='.16' stop-color='%23FFB6FA'/%3E%3Cstop offset='.42' stop-color='%23D966F2'/%3E%3Cstop offset='.7' stop-color='%238735E2'/%3E%3Cstop offset='1' stop-color='%2342149B'/%3E%3C/radialGradient%3E%3Cfilter id='PurpleGlow' x='-100%25' y='-100%25' width='300%25' height='300%25'%3E%3CfeGaussianBlur stdDeviation='12' result='blur'/%3E%3CfeColorMatrix in='blur' type='matrix' values='1 0 0 0 .35 0 1 0 0 .05 0 0 1 0 .85 0 0 0 .8 0' result='coloredBlur'/%3E%3CfeMerge%3E%3CfeMergeNode in='coloredBlur'/%3E%3CfeMergeNode in='SourceGraphic'/%3E%3C/feMerge%3E%3C/filter%3E%3Cfilter id='OrbitGlow' x='-100%25' y='-100%25' width='300%25' height='300%25'%3E%3CfeGaussianBlur stdDeviation='6' result='blur'/%3E%3CfeMerge%3E%3CfeMergeNode in='blur'/%3E%3CfeMergeNode in='SourceGraphic'/%3E%3C/feMerge%3E%3C/filter%3E%3Cfilter id='TextShadow' x='-30%25' y='-30%25' width='160%25' height='170%25'%3E%3CfeDropShadow dx='0' dy='5' stdDeviation='3' flood-color='%23251052' flood-opacity='.55'/%3E%3C/filter%3E%3Cfilter id='NShadow' x='-50%25' y='-50%25' width='200%25' height='200%25'%3E%3CfeDropShadow dx='0' dy='10' stdDeviation='8' flood-color='%2317052F' flood-opacity='.58'/%3E%3C/filter%3E%3CclipPath id='NClip'%3E%3Cpath d='M 86 91 C 86 65 100 51 121 51 C 142 51 154 64 166 84 L 222 179 L 222 82 C 222 61 234 50 253 50 C 274 50 285 63 285 84 L 285 224 C 285 249 273 263 252 263 C 232 263 219 250 208 230 L 154 137 L 154 226 C 154 249 143 263 123 263 C 101 263 86 249 86 226 Z'/%3E%3C/clipPath%3E%3C/defs%3E%3Cg transform='translate(8 8)'%3E%3Cellipse cx='188' cy='158' rx='138' ry='108' fill='%237E38E8' opacity='.12' filter='url(%23PurpleGlow)'/%3E%3Cpath d='M 87 99 C 87 74 101 61 121 61 C 142 61 154 74 166 94 L 222 189 L 222 92 C 222 71 234 60 253 60 C 274 60 285 73 285 94 L 285 234 C 285 259 273 273 252 273 C 232 273 219 260 208 240 L 154 147 L 154 236 C 154 259 143 273 123 273 C 101 273 87 259 87 236 Z' fill='%23351078' opacity='.72' transform='translate(0 8)' filter='url(%23NShadow)'/%3E%3Cpath d='M 86 91 C 86 65 100 51 121 51 C 142 51 154 64 166 84 L 222 179 L 222 82 C 222 61 234 50 253 50 C 274 50 285 63 285 84 L 285 224 C 285 249 273 263 252 263 C 232 263 219 250 208 230 L 154 137 L 154 226 C 154 249 143 263 123 263 C 101 263 86 249 86 226 Z' fill='url(%23NMainGradient)' filter='url(%23NShadow)'/%3E%3Cpath d='M 86 91 C 86 65 100 51 121 51 C 142 51 154 64 166 84 L 191 127 L 154 178 L 154 226 C 154 249 143 263 123 263 C 101 263 86 249 86 226 Z' fill='url(%23NLeftGradient)'/%3E%3Cpath d='M 222 82 C 222 61 234 50 253 50 C 274 50 285 63 285 84 L 285 224 C 285 249 273 263 252 263 C 241 263 232 258 225 249 C 234 242 238 232 238 219 L 238 86 C 238 77 233 71 225 68 C 223 72 222 77 222 82 Z' fill='url(%23NRightGradient)' opacity='.92'/%3E%3Cpath d='M 154 137 L 208 230 C 219 250 232 263 252 263 C 241 253 236 243 228 229 L 176 140 Z' fill='%2330106D' opacity='.38'/%3E%3Cpath d='M 92 82 C 101 59 120 53 137 61 C 150 68 158 81 168 98 L 214 177 L 191 207 L 144 126 C 128 98 112 85 92 82 Z' fill='url(%23NHighlight)' opacity='.82' clip-path='url(%23NClip)'/%3E%3Cpath d='M 90 91 C 90 68 102 56 120 56 C 139 56 150 68 161 87' fill='none' stroke='%23F4D8FF' stroke-width='3' stroke-linecap='round' opacity='.72'/%3E%3Cpath d='M 225 81 C 225 62 236 55 252 55 C 269 55 281 65 281 84' fill='none' stroke='%23EFC9FF' stroke-width='3' stroke-linecap='round' opacity='.7'/%3E%3Cpath d='M 40 184 C 76 144 137 124 204 116 C 269 108 330 113 343 133 C 356 153 327 176 285 192' fill='none' stroke='%239A35CC' stroke-width='12' stroke-linecap='round' opacity='.52' filter='url(%23OrbitGlow)'/%3E%3Cpath d='M 40 184 C 76 144 137 124 204 116 C 269 108 330 113 343 133 C 356 153 327 176 285 192 C 232 212 166 226 106 226 C 67 226 44 211 40 195' fill='none' stroke='url(%23OrbitGradient)' stroke-width='10' stroke-linecap='round' stroke-linejoin='round' filter='url(%23OrbitGlow)'/%3E%3Cpath d='M 44 185 C 80 148 138 130 204 120 C 258 112 305 116 326 128' fill='none' stroke='url(%23OrbitHighlight)' stroke-width='3' stroke-linecap='round' opacity='.95'/%3E%3Cpath d='M 45 194 C 55 210 79 218 108 219 C 167 220 230 207 282 188' fill='none' stroke='%23FFB2F7' stroke-width='2.2' stroke-linecap='round' opacity='.65'/%3E%3Ccircle cx='335' cy='232' r='25' fill='%235A20C2' opacity='.5' filter='url(%23PurpleGlow)'/%3E%3Ccircle cx='335' cy='232' r='20' fill='url(%23SphereGradient)' stroke='%23B85DFF' stroke-width='1.5'/%3E%3Cellipse cx='328' cy='224' rx='7' ry='5' fill='%23FFFFFF' opacity='.55'/%3E%3Cg filter='url(%23TextShadow)'%3E%3Ctext x='390' y='138' font-family='Arial, Helvetica, sans-serif' font-size='82' font-weight='800' letter-spacing='-3' fill='url(%23NetGradient)'%3ENet%3C/text%3E%3C/g%3E%3Cg filter='url(%23TextShadow)'%3E%3Ctext x='390' y='218' font-family='Arial, Helvetica, sans-serif' font-size='82' font-weight='800' letter-spacing='-4' fill='url(%23LandGradient)'%3Eland%3C/text%3E%3C/g%3E%3Cpath d='M 397 80 L 510 80' stroke='%23FFFFFF' stroke-width='2' stroke-linecap='round' opacity='.22'/%3E%3Ccircle cx='393' cy='226' r='3' fill='%23D99AFF' opacity='.85'/%3E%3C/g%3E%3C/svg%3E" 
+        alt="Net Land Logo"
+        class="netland-logo-svg"
+        width="190"
+        height="75"
+      >
+    </div>
+
+    <div class="header-side right">
+
+      <button
+        class="icon-button"
+        aria-label="خانه"
+        onclick="window.location.href='index.html'"
+      >
+
+        <svg
+          width="23"
+          height="23"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="1.8"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        >
+
+          <path d="m3 10 9-7 9 7v10a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V10Z"/>
+
+          <path d="M9 22v-7h6v7"/>
+
+        </svg>
+
+      </button>
+
+    </div>
+
+  </header>
+
+  <main>
+
+    <section class="page-intro">
+
+      <div class="page-intro-content">
+
+        <h1 class="page-title">
+
+          <svg
+            width="25"
+            height="25"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.8"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+
+            <path d="M20.8 8.8c0 5.5-8.8 10.2-8.8 10.2S3.2 14.3 3.2 8.8A4.6 4.6 0 0 1 12 6.2a4.6 4.6 0 0 1 8.8 2.6Z"/>
+
+          </svg>
+
+          <span>
+            علاقه‌مندی‌ها
+          </span>
+
+        </h1>
+
+        <p class="page-description">
+          جشنواره‌ها و پیشنهادهایی که ذخیره کرده‌ای
+          در این بخش همیشه در دسترس هستند.
+        </p>
+
+      </div>
+
+    </section>
+
+    <section>
+
+      <div class="section-header">
+
+        <h2 class="section-title">
+
+          <svg
+            width="23"
+            height="23"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.8"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+
+            <path d="M20.8 8.8c0 5.5-8.8 10.2-8.8 10.2S3.2 14.3 3.2 8.8A4.6 4.6 0 0 1 12 6.2a4.6 4.6 0 0 1 8.8 2.6Z"/>
+
+          </svg>
+
+          <span>
+            ذخیره‌شده‌ها
+          </span>
+
+          <span
+            class="favorite-count"
+            id="favoriteCount"
+          >
+            ۰
+          </span>
+
+        </h2>
+
+      </div>
+
+      <div
+        class="favorites-list"
+        id="favoritesList"
+      ></div>
+
+      <div
+        class="empty-state"
+        id="emptyState"
+      >
+
+        <div class="empty-icon">
+
+          <svg
+            width="39"
+            height="39"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.6"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+
+            <path d="M20.8 8.8c0 5.5-8.8 10.2-8.8 10.2S3.2 14.3 3.2 8.8A4.6 4.6 0 0 1 12 6.2a4.6 4.6 0 0 1 8.8 2.6Z"/>
+
+          </svg>
+
+        </div>
+
+        <h3 class="empty-title">
+          هنوز چیزی ذخیره نکرده‌ای
+        </h3>
+
+        <p class="empty-text">
+          هر جشنواره‌ای که برایت جذاب است را
+          به علاقه‌مندی‌ها اضافه کن تا بعداً
+          سریع‌تر به آن دسترسی داشته باشی.
+        </p>
+
+        <button
+          class="empty-button"
+          onclick="window.location.href='festivals.html'"
+        >
+
+          <span>
+            مشاهده جشنواره‌ها
+          </span>
+
+          <svg
+            width="16"
+            height="16"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+
+            <path d="m9 18 6-6-6-6"/>
+
+          </svg>
+
+        </button>
+
+      </div>
+
+    </section>
+
+    <section class="info-card">
+
+      <div class="info-item">
+
+        <div class="info-icon">
+
+          <svg
+            width="19"
+            height="19"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.8"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+
+            <path d="m20 12-8 8-8-8 8-8 8 8Z"/>
+
+            <circle
+              cx="12"
+              cy="12"
+              r="2"
+            />
+
+          </svg>
+
+        </div>
+
+        <h3 class="info-title">
+          همیشه در دسترس
+        </h3>
+
+        <p class="info-text">
+          طرح‌های موردعلاقه‌ات را سریع پیدا کن
+        </p>
+
+      </div>
+
+      <div class="info-item">
+
+        <div class="info-icon">
+
+          <svg
+            width="19"
+            height="19"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.8"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+
+            <path d="m13 2-9 12h7l-1 8 9-12h-7l1-8Z"/>
+
+          </svg>
+
+        </div>
+
+        <h3 class="info-title">
+          دسترسی سریع
+        </h3>
+
+        <p class="info-text">
+          بدون جست‌وجوی دوباره به طرح‌ها برس
+        </p>
+
+      </div>
+
+      <div class="info-item">
+
+        <div class="info-icon">
+
+          <svg
+            width="19"
+            height="19"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.8"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+
+            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10Z"/>
+
+            <path d="m9 12 2 2 4-4"/>
+
+          </svg>
+
+        </div>
+
+        <h3 class="info-title">
+          ساده و مطمئن
+        </h3>
+
+        <p class="info-text">
+          مدیریت علاقه‌مندی‌ها با یک لمس
+        </p>
+
+      </div>
+
+    </section>
+
+  </main>
+
+</div>
+
+<div class="bottom-nav-wrapper">
+
+  <nav class="bottom-nav">
+
+    <button
+      class="nav-item"
+      onclick="window.location.href='faq.html'"
+    >
+
+      <span class="nav-icon">
+
+        <svg
+          width="23"
+          height="23"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="1.8"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        >
+
+          <circle
+            cx="12"
+            cy="12"
+            r="9"
+          />
+
+          <path
+            d="M9.5 9a2.5 2.5 0 1 1 4.3 1.7c-.9.9-1.8 1.2-1.8 2.8"
+          />
+
+          <path d="M12 17h.01"/>
+
+        </svg>
+
+      </span>
+
+      <span>
+        سوالات متداول
+      </span>
+
+    </button>
+
+    <button
+      class="nav-item active"
+      onclick="window.location.href='favorites.html'"
+    >
+
+      <span class="nav-icon">
+
+        <svg
+          width="23"
+          height="23"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="1.8"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        >
+
+          <path d="M20.8 8.8c0 5.5-8.8 10.2-8.8 10.2S3.2 14.3 3.2 8.8A4.6 4.6 0 0 1 12 6.2a4.6 4.6 0 0 1 8.8 2.6Z"/>
+
+        </svg>
+
+      </span>
+
+      <span>
+        علاقه‌مندی‌ها
+      </span>
+
+    </button>
+
+    <button
+      class="nav-item"
+      onclick="window.location.href='festivals.html'"
+    >
+
+      <span class="nav-icon">
+
+        <svg
+          width="23"
+          height="23"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="1.8"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        >
+
+          <path d="M20 12v7a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2v-7"/>
+
+          <path d="M2 7h20v5H2z"/>
+
+          <path d="M12 22V7"/>
+
+        </svg>
+
+      </span>
+
+      <span>
+        جشنواره‌ها
+      </span>
+
+    </button>
+
+    <button
+      class="nav-item"
+      onclick="window.location.href='index.html'"
+    >
+
+      <span class="nav-icon">
+
+        <svg
+          width="22"
+          height="22"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        >
+
+          <path d="m3 10 9-7 9 7v10a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V10Z"/>
+
+          <path d="M9 22v-7h6v7"/>
+
+        </svg>
+
+      </span>
+
+      <span>
+        خانه
+      </span>
+
+    </button>
+
+  </nav>
+
+</div>
+
+<script>
+
+  const FAVORITES_KEY = "netLandFavorites";
+
+  const FESTIVALS = [
+
+    {
+      id: "festival-01",
+
+      title: "جشنواره شارژ خودمکویی",
+
+      badge: "شارژ رایگان",
+
+      description:
+        "با شرکت در طرح، شارژ رایگان دریافت کن",
+
+      type: "charge",
+
+      color: "purple",
+
+      remaining: "۵ روز دیگر"
+    },
+
+    {
+      id: "festival-02",
+
+      title: "۵ گیگ اینترنت هدیه",
+
+      badge: "اینترنت رایگان",
+
+      description:
+        "ویژه کاربران جدید",
+
+      type: "internet",
+
+      color: "green",
+
+      remaining: "۳ روز دیگر"
+    },
+
+    {
+      id: "festival-03",
+
+      title: "بسته ترکیبی ویژه",
+
+      badge: "شارژ + اینترنت",
+
+      description:
+        "هم شارژ، هم اینترنت رایگان",
+
+      type: "combo",
+
+      color: "orange",
+
+      remaining: "۷ روز دیگر"
+    }
+
+  ];
+
+
+  function toPersianDigits(value) {
+
+    const digits =
+      "۰۱۲۳۴۵۶۷۸۹";
+
+    return String(value).replace(
+      /\d/g,
+      function(digit) {
+
+        return digits[digit];
+
+      }
+    );
+
+  }
+
+
+  function getFavorites() {
+
+    try {
+
+      const saved =
+        localStorage.getItem(
+          FAVORITES_KEY
+        );
+
+      if (!saved) {
+
+        return [];
+
+      }
+
+      const favorites =
+        JSON.parse(saved);
+
+      if (
+        !Array.isArray(favorites)
+      ) {
+
+        return [];
+
+      }
+
+      return favorites;
+
+    }
+
+    catch (error) {
+
+      return [];
+
+    }
+
+  }
+
+
+  function saveFavorites(
+    favorites
+  ) {
+
+    localStorage.setItem(
+      FAVORITES_KEY,
+      JSON.stringify(
+        favorites
+      )
+    );
+
+  }
+
+
+  function getIcon(type) {
+
+    if (type === "internet") {
+
+      return `
+        <svg
+          width="32"
+          height="32"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="1.7"
+          stroke-linecap="round"
+        >
+          <path d="M5 12.55a11 11 0 0 1 14.08 0"/>
+          <path d="M8.5 16.05a6 6 0 0 1 7 0"/>
+          <path d="M12 19.5h.01"/>
+        </svg>
+      `;
+
+    }
+
+
+    if (type === "combo") {
+
+      return `
+        <svg
+          width="32"
+          height="32"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="1.7"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        >
+          <path d="M20 12v7a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2v-7"/>
+          <path d="M2 7h20v5H2z"/>
+          <path d="M12 22V7"/>
+          <path d="M12 7H7.5a2.5 2.5 0 1 1 0-5C11 2 12 7 12 7Z"/>
+          <path d="M12 7h4.5a2.5 2.5 0 1 0 0-5C13 2 12 7 12 7Z"/>
+        </svg>
+      `;
+
+    }
+
+
+    return `
+      <svg
+        width="31"
+        height="31"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="1.7"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      >
+        <rect
+          x="6"
+          y="2"
+          width="12"
+          height="20"
+          rx="2"
+        />
+        <path d="M9 5h6"/>
+        <path d="M11 18h2"/>
+        <path d="m13 8-2 4h2l-2 4"/>
+      </svg>
+    `;
+
+  }
+
+
+  function getCalendarIcon() {
+
+    return `
+      <svg
+        width="14"
+        height="14"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="1.8"
+        stroke-linecap="round"
+      >
+        <rect
+          x="3"
+          y="4"
+          width="18"
+          height="18"
+          rx="2"
+        />
+        <path d="M16 2v4"/>
+        <path d="M8 2v4"/>
+        <path d="M3 10h18"/>
+      </svg>
+    `;
+
+  }
+
+
+  function getBadgeClass(
+    color
+  ) {
+
+    if (color === "green") {
+
+      return "badge-green";
+
+    }
+
+    if (color === "orange") {
+
+      return "badge-orange";
+
+    }
+
+    return "badge-purple";
+
+  }
+
+
+  function createFavoriteCard(
+    festival
+  ) {
+
+    const card =
+      document.createElement(
+        "article"
+      );
+
+    card.className =
+      "favorite-card";
+
+    card.dataset.id =
+      festival.id;
+
+
+    card.innerHTML = `
+
+      <div class="favorite-icon ${festival.color}">
+
+        ${getIcon(festival.type)}
+
+      </div>
+
+
+      <div class="favorite-content">
+
+        <span
+          class="favorite-badge ${getBadgeClass(festival.color)}"
+        >
+          ${festival.badge}
+        </span>
+
+        <h3 class="favorite-title">
+          ${festival.title}
+        </h3>
+
+        <p class="favorite-description">
+          ${festival.description}
+        </p>
+
+        <div class="favorite-meta">
+
+          ${getCalendarIcon()}
+
+          <span>
+            ${festival.remaining}
+          </span>
+
+        </div>
+
+      </div>
+
+
+      <div class="favorite-actions">
+
+        <button
+          class="remove-button"
+          aria-label="حذف از علاقه‌مندی‌ها"
+          onclick="event.stopPropagation(); removeFavorite('${festival.id}')"
+        >
+
+          <svg
+            width="21"
+            height="21"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.8"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+
+            <path d="M3 6h18"/>
+
+            <path d="M8 6V4h8v2"/>
+
+            <path d="M19 6l-1 15H6L5 6"/>
+
+            <path d="M10 11v6"/>
+
+            <path d="M14 11v6"/>
+
+          </svg>
+
+        </button>
+
+
+        <button
+          class="favorite-action"
+          onclick="event.stopPropagation(); window.location.href='festival-detail.html?id=${festival.id}'"
+        >
+
+          <span>
+            مشاهده و شرکت
+          </span>
+
+          <svg
+            width="15"
+            height="15"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+
+            <path d="m15 18-6-6 6-6"/>
+
+          </svg>
+
+        </button>
+
+      </div>
+
+    `;
+
+
+    card.addEventListener(
+      "click",
+      function() {
+
+        window.location.href =
+          "festival-detail.html?id=" +
+          encodeURIComponent(
+            festival.id
+          );
+
+      }
+    );
+
+
+    return card;
+
+  }
+
+
+  function removeFavorite(
+    festivalId
+  ) {
+
+    const favorites =
+      getFavorites();
+
+    const updated =
+      favorites.filter(
+        function(id) {
+
+          return id !== festivalId;
+
+        }
+      );
+
+
+    saveFavorites(
+      updated
+    );
+
+
+    renderFavorites();
+
+
+    showToast(
+      "از علاقه‌مندی‌ها حذف شد"
+    );
+
+  }
+
+
+  function renderFavorites() {
+
+    const list =
+      document.getElementById(
+        "favoritesList"
+      );
+
+    const emptyState =
+      document.getElementById(
+        "emptyState"
+      );
+
+    const count =
+      document.getElementById(
+        "favoriteCount"
+      );
+
+
+    const favoriteIds =
+      getFavorites();
+
+
+    const validFavorites =
+      favoriteIds.filter(
+        function(id) {
+
+          return FESTIVALS.some(
+            function(festival) {
+
+              return festival.id === id;
+
+            }
+          );
+
+        }
+      );
+
+
+    if (
+      validFavorites.length !==
+      favoriteIds.length
+    ) {
+
+      saveFavorites(
+        validFavorites
+      );
+
+    }
+
+
+    count.textContent =
+      toPersianDigits(
+        validFavorites.length
+      );
+
+
+    list.innerHTML = "";
+
+
+    if (
+      validFavorites.length === 0
+    ) {
+
+      emptyState.classList.add(
+        "show"
+      );
+
+      return;
+
+    }
+
+
+    emptyState.classList.remove(
+      "show"
+    );
+
+
+    validFavorites.forEach(
+      function(id) {
+
+        const festival =
+          FESTIVALS.find(
+            function(item) {
+
+              return item.id === id;
+
+            }
+          );
+
+
+        if (!festival) {
+
+          return;
+
+        }
+
+
+        list.appendChild(
+          createFavoriteCard(
+            festival
+          )
+        );
+
+      }
+    );
+
+  }
+
+
+  function showToast(
+    message
+  ) {
+
+    const oldToast =
+      document.querySelector(
+        ".toast"
+      );
+
+
+    if (oldToast) {
+
+      oldToast.remove();
+
+    }
+
+
+    const toast =
+      document.createElement(
+        "div"
+      );
+
+
+    toast.className =
+      "toast";
+
+
+    toast.textContent =
+      message;
+
+
+    document.body.appendChild(
+      toast
+    );
+
+
+    requestAnimationFrame(
+      function() {
+
+        toast.classList.add(
+          "show"
+        );
+
+      }
+    );
+
+
+    setTimeout(
+      function() {
+
+        toast.classList.remove(
+          "show"
+        );
+
+
+        setTimeout(
+          function() {
+
+            if (
+              toast.parentNode
+            ) {
+
+              toast.remove();
+
+            }
+
+          },
+          250
+        );
+
+      },
+      1800
+    );
+
+  }
+
+
+  renderFavorites();
+
+</script>
+
+</body>
+
+</html>

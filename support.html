@@ -1,0 +1,2023 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+
+<head>
+
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <title>پشتیبانی | نت لند</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+
+  <link
+    rel="preconnect"
+    href="https://fonts.googleapis.com"
+    crossorigin
+  >
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet"
+  >
+
+  <style>
+
+    :root {
+
+      --primary: #6d35e8;
+      --primary-2: #8255f3;
+      --primary-light: #f0ebff;
+
+      --blue: #4f7cff;
+
+      --green: #25b96f;
+      --green-light: #e9f9f0;
+
+      --orange: #f3a623;
+      --orange-light: #fff3dc;
+
+      --yellow: #ffc83d;
+
+      --bg: #f8f8fc;
+      --white: #ffffff;
+
+      --text: #20202a;
+      --text-secondary: #6f7180;
+      --text-muted: #999ba8;
+
+      --border: #ececf3;
+
+      --shadow-sm:
+        0 5px 18px rgba(40, 30, 80, 0.05);
+
+      --shadow-md:
+        0 12px 30px rgba(70, 40, 140, 0.12);
+
+      --radius-lg: 26px;
+      --radius-md: 22px;
+      --radius-sm: 15px;
+
+      --container: 1100px;
+
+      --composer-height: 78px;
+
+    }
+
+
+    * {
+
+      box-sizing: border-box;
+
+      margin: 0;
+
+      padding: 0;
+
+    }
+
+
+    html {
+
+      scroll-behavior: smooth;
+
+    }
+
+
+    body {
+
+      font-family: "Vazirmatn", sans-serif;
+
+      background: var(--bg);
+
+      color: var(--text);
+
+      min-height: 100vh;
+
+      -webkit-font-smoothing: antialiased;
+
+      overflow-x: hidden;
+
+    }
+
+
+    button,
+    input,
+    textarea {
+
+      font-family: inherit;
+
+    }
+
+
+    button {
+
+      border: none;
+
+      cursor: pointer;
+
+    }
+
+
+    /* =====================================
+       APP
+    ====================================== */
+
+    .app {
+
+      width: 100%;
+
+      max-width: var(--container);
+
+      min-height: 100vh;
+
+      margin: 0 auto;
+
+      padding-bottom:
+        calc(var(--composer-height) + 30px);
+
+    }
+
+
+    /* =====================================
+       HEADER با لوگوی NET LAND (مشابه ایندکس)
+    ====================================== */
+
+    .header {
+      height: 76px;
+      padding: 0 22px;
+      background: var(--white);
+      display: grid;
+      grid-template-columns: 0.8fr auto 1.5fr;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .header-side {
+      display: flex;
+      align-items: center;
+    }
+    .header-side.left { justify-content: flex-start; }
+    .header-side.right { justify-content: flex-end; }
+
+    .icon-button {
+      width: 44px;
+      height: 44px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 14px;
+      background: transparent;
+      color: #343441;
+      transition: .2s ease;
+    }
+    .icon-button:hover { background: #f5f3fa; color: var(--primary); }
+
+    /* ===== لوگوی Net Land (همون ایندکس) ===== */
+    .netland-header-logo {
+      width: 190px;
+      height: 75px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      overflow: visible;
+    }
+
+    .netland-logo-svg {
+      width: 100%;
+      height: 100%;
+      display: block;
+      user-select: none;
+      -webkit-user-select: none;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    @media (max-width: 700px) {
+      .netland-header-logo {
+        width: 155px;
+        height: 60px;
+      }
+    }
+
+    @media (max-width: 400px) {
+      .netland-header-logo {
+        width: 140px;
+        height: 55px;
+      }
+    }
+
+
+    /* =====================================
+       MAIN
+    ====================================== */
+
+    main {
+
+      padding: 0 20px;
+
+    }
+
+
+    /* =====================================
+       CHAT HEADER
+    ====================================== */
+
+    .chat-header {
+
+      margin-top: 18px;
+
+      background:
+        linear-gradient(
+          135deg,
+          var(--primary),
+          var(--primary-2)
+        );
+
+      min-height: 88px;
+
+      border-radius: var(--radius-lg);
+
+      padding: 15px 17px;
+
+      display: flex;
+
+      align-items: center;
+
+      gap: 14px;
+
+      color: white;
+
+      box-shadow: var(--shadow-md);
+
+    }
+
+
+    .support-avatar {
+
+      width: 55px;
+
+      height: 55px;
+
+      min-width: 55px;
+
+      border-radius: 18px;
+
+      background:
+        rgba(255,255,255,.18);
+
+      border:
+        1px solid
+        rgba(255,255,255,.28);
+
+      display: flex;
+
+      align-items: center;
+
+      justify-content: center;
+
+    }
+
+
+    .support-avatar svg {
+
+      width: 29px;
+
+      height: 29px;
+
+      stroke: white;
+
+      fill: none;
+
+      stroke-width: 1.8;
+
+      stroke-linecap: round;
+
+      stroke-linejoin: round;
+
+    }
+
+
+    .chat-info {
+
+      min-width: 0;
+
+      flex: 1;
+
+    }
+
+
+    .chat-title {
+
+      font-size: 17px;
+
+      font-weight: 800;
+
+    }
+
+
+    .chat-subtitle {
+
+      margin-top: 5px;
+
+      font-size: 10px;
+
+      color:
+        rgba(255,255,255,.78);
+
+    }
+
+
+    .chat-actions {
+
+      display: flex;
+
+      align-items: center;
+
+      gap: 7px;
+
+    }
+
+
+    .chat-action {
+
+      width: 39px;
+
+      height: 39px;
+
+      border-radius: 13px;
+
+      background:
+        rgba(255,255,255,.13);
+
+      color: white;
+
+      display: flex;
+
+      align-items: center;
+
+      justify-content: center;
+
+      transition: .2s ease;
+
+    }
+
+
+    .chat-action:hover {
+
+      background:
+        rgba(255,255,255,.22);
+
+    }
+
+
+    .chat-action svg {
+
+      width: 19px;
+
+      height: 19px;
+
+      stroke: currentColor;
+
+      fill: none;
+
+      stroke-width: 1.8;
+
+      stroke-linecap: round;
+
+      stroke-linejoin: round;
+
+    }
+
+
+    /* =====================================
+       CHAT BOX
+    ====================================== */
+
+    .chat-box {
+
+      margin-top: 12px;
+
+      background: #f1f0f6;
+
+      border:
+        1px solid
+        var(--border);
+
+      border-radius:
+        var(--radius-lg);
+
+      overflow: hidden;
+
+      min-height: 570px;
+
+      box-shadow:
+        var(--shadow-sm);
+
+    }
+
+
+    /* =====================================
+       MESSAGES
+    ====================================== */
+
+    .messages {
+
+      padding: 18px 14px 22px;
+
+      min-height: 570px;
+
+      max-height: 650px;
+
+      overflow-y: auto;
+
+      background:
+
+        radial-gradient(
+          circle at 10% 10%,
+          rgba(109,53,232,.035),
+          transparent 35%
+        ),
+
+        radial-gradient(
+          circle at 90% 80%,
+          rgba(130,85,243,.035),
+          transparent 35%
+        ),
+
+        #f4f3f8;
+
+      scrollbar-width: thin;
+
+      scrollbar-color:
+        rgba(109,53,232,.25)
+        transparent;
+
+    }
+
+
+    .messages::-webkit-scrollbar {
+
+      width: 5px;
+
+    }
+
+
+    .messages::-webkit-scrollbar-track {
+
+      background: transparent;
+
+    }
+
+
+    .messages::-webkit-scrollbar-thumb {
+
+      background:
+        rgba(109,53,232,.22);
+
+      border-radius: 20px;
+
+    }
+
+
+    /* =====================================
+       DATE
+    ====================================== */
+
+    .date-divider {
+
+      display: flex;
+
+      align-items: center;
+
+      justify-content: center;
+
+      margin:
+        4px 0 18px;
+
+    }
+
+
+    .date-divider span {
+
+      background:
+        rgba(255,255,255,.86);
+
+      border:
+        1px solid
+        rgba(236,236,243,.9);
+
+      color: var(--text-muted);
+
+      font-size: 10px;
+
+      padding:
+        6px 13px;
+
+      border-radius: 30px;
+
+      box-shadow:
+        0 3px 10px
+        rgba(40,30,80,.04);
+
+    }
+
+
+    /* =====================================
+       MESSAGE ROW
+    ====================================== */
+
+    .message-row {
+
+      display: flex;
+
+      width: 100%;
+
+      margin-bottom: 12px;
+
+    }
+
+
+    .message-row.support {
+
+      justify-content: flex-start;
+
+    }
+
+
+    .message-row.user {
+
+      justify-content: flex-end;
+
+    }
+
+
+    .message-row.admin {
+
+      justify-content: flex-start;
+
+    }
+
+
+    .message-row.admin .message {
+
+      background: #e8e0f5;
+
+      border: 1px solid #d5c8f0;
+
+      border-bottom-right-radius: 5px;
+
+    }
+
+
+    .message-row.admin .message-sender {
+
+      color: var(--primary-2);
+
+    }
+
+
+    /* =====================================
+       MESSAGE
+    ====================================== */
+
+    .message {
+
+      max-width:
+        min(78%, 510px);
+
+      padding:
+        11px 13px 8px;
+
+      border-radius: 18px;
+
+      position: relative;
+
+      box-shadow:
+        0 3px 10px
+        rgba(40,30,80,.045);
+
+    }
+
+
+    .message-row.support .message {
+
+      background: white;
+
+      border:
+        1px solid
+        var(--border);
+
+      border-bottom-right-radius: 5px;
+
+    }
+
+
+    .message-row.user .message {
+
+      background:
+        linear-gradient(
+          135deg,
+          var(--primary),
+          var(--primary-2)
+        );
+
+      color: white;
+
+      border-bottom-left-radius: 5px;
+
+    }
+
+
+    .message-sender {
+
+      font-size: 10px;
+
+      font-weight: 700;
+
+      color: var(--primary);
+
+      margin-bottom: 5px;
+
+    }
+
+
+    .message-text {
+
+      font-size: 13px;
+
+      line-height: 2;
+
+      word-break: break-word;
+
+    }
+
+
+    .message-row.user .message-text {
+
+      color: white;
+
+    }
+
+
+    .message-meta {
+
+      display: flex;
+
+      align-items: center;
+
+      justify-content: flex-end;
+
+      gap: 5px;
+
+      margin-top: 3px;
+
+      direction: ltr;
+
+    }
+
+
+    .message-time {
+
+      font-size: 9px;
+
+      color: var(--text-muted);
+
+    }
+
+
+    .message-row.user .message-time {
+
+      color:
+        rgba(255,255,255,.72);
+
+    }
+
+
+    .message-check {
+
+      width: 14px;
+
+      height: 14px;
+
+      stroke: currentColor;
+
+      fill: none;
+
+      stroke-width: 1.8;
+
+      stroke-linecap: round;
+
+      stroke-linejoin: round;
+
+    }
+
+
+    .message-row.user .message-check {
+
+      color: #d9cbff;
+
+    }
+
+
+    /* =====================================
+       QUICK QUESTIONS
+    ====================================== */
+
+    .quick-section {
+
+      padding:
+        0 11px 12px;
+
+      background: #f4f3f8;
+
+    }
+
+
+    .quick-title {
+
+      font-size: 10px;
+
+      color: var(--text-muted);
+
+      margin:
+        0 4px 8px;
+
+    }
+
+
+    .quick-list {
+
+      display: flex;
+
+      gap: 7px;
+
+      overflow-x: auto;
+
+      padding:
+        0 2px 2px;
+
+      scrollbar-width: none;
+
+    }
+
+
+    .quick-list::-webkit-scrollbar {
+
+      display: none;
+
+    }
+
+
+    .quick-btn {
+
+      flex: 0 0 auto;
+
+      background: white;
+
+      border:
+        1px solid
+        var(--border);
+
+      color: var(--text-secondary);
+
+      padding:
+        8px 12px;
+
+      border-radius: 13px;
+
+      font-size: 10px;
+
+      transition: .2s ease;
+
+    }
+
+
+    .quick-btn:hover {
+
+      border-color:
+        var(--primary);
+
+      color:
+        var(--primary);
+
+      background:
+        var(--primary-light);
+
+    }
+
+
+    /* =====================================
+       FIXED COMPOSER
+    ====================================== */
+
+    .composer-wrapper {
+
+      position: fixed;
+
+      right: 0;
+
+      left: 0;
+
+      bottom: 0;
+
+      z-index: 90;
+
+      display: flex;
+
+      justify-content: center;
+
+      pointer-events: none;
+
+    }
+
+
+    .composer {
+
+      width:
+        min(100%, var(--container));
+
+      min-height:
+        var(--composer-height);
+
+      background:
+        rgba(255,255,255,.97);
+
+      border-top:
+        1px solid
+        var(--border);
+
+      box-shadow:
+        0 -8px 25px
+        rgba(40,30,80,.07);
+
+      padding:
+        11px 20px;
+
+      display: flex;
+
+      align-items: flex-end;
+
+      gap: 8px;
+
+      pointer-events: auto;
+
+      backdrop-filter:
+        blur(14px);
+
+    }
+
+
+    /* =====================================
+       ATTACH BUTTON
+    ====================================== */
+
+    .attach-button {
+
+      width: 43px;
+
+      height: 43px;
+
+      min-width: 43px;
+
+      border-radius: 14px;
+
+      background: #f7f6fb;
+
+      color: var(--text-secondary);
+
+      display: flex;
+
+      align-items: center;
+
+      justify-content: center;
+
+      transition: .2s ease;
+
+    }
+
+
+    .attach-button:hover {
+
+      background:
+        var(--primary-light);
+
+      color:
+        var(--primary);
+
+    }
+
+
+    .attach-button svg {
+
+      width: 20px;
+
+      height: 20px;
+
+      stroke: currentColor;
+
+      fill: none;
+
+      stroke-width: 1.8;
+
+      stroke-linecap: round;
+
+      stroke-linejoin: round;
+
+    }
+
+
+    /* =====================================
+       MESSAGE INPUT
+    ====================================== */
+
+    .input-wrap {
+
+      flex: 1;
+
+      min-width: 0;
+
+      background: #f7f6fb;
+
+      border:
+        1px solid
+        var(--border);
+
+      border-radius: 16px;
+
+      display: flex;
+
+      align-items: center;
+
+      padding:
+        0 13px;
+
+      transition: .2s ease;
+
+    }
+
+
+    .input-wrap:focus-within {
+
+      border-color:
+        rgba(109,53,232,.35);
+
+      background: white;
+
+      box-shadow:
+        0 0 0 4px
+        rgba(109,53,232,.06);
+
+    }
+
+
+    .message-input {
+
+      width: 100%;
+
+      min-height: 43px;
+
+      max-height: 110px;
+
+      resize: none;
+
+      border: none;
+
+      outline: none;
+
+      background: transparent;
+
+      color: var(--text);
+
+      font-size: 12px;
+
+      line-height: 1.8;
+
+      padding:
+        10px 0;
+
+      overflow-y: auto;
+
+    }
+
+
+    .message-input::placeholder {
+
+      color: var(--text-muted);
+
+    }
+
+
+    /* =====================================
+       SEND BUTTON
+    ====================================== */
+
+    .send-button {
+
+      width: 46px;
+
+      height: 46px;
+
+      min-width: 46px;
+
+      border-radius: 15px;
+
+      background:
+        linear-gradient(
+          135deg,
+          var(--primary),
+          var(--primary-2)
+        );
+
+      color: white;
+
+      display: flex;
+
+      align-items: center;
+
+      justify-content: center;
+
+      box-shadow:
+        0 8px 18px
+        rgba(109,53,232,.22);
+
+      transition: .2s ease;
+
+    }
+
+
+    .send-button:hover {
+
+      transform:
+        translateY(-1px);
+
+      box-shadow:
+        0 10px 22px
+        rgba(109,53,232,.28);
+
+    }
+
+
+    .send-button:active {
+
+      transform:
+        scale(.95);
+
+    }
+
+
+    .send-button svg {
+
+      width: 20px;
+
+      height: 20px;
+
+      stroke: white;
+
+      fill: none;
+
+      stroke-width: 1.9;
+
+      stroke-linecap: round;
+
+      stroke-linejoin: round;
+
+      transform:
+        rotate(180deg);
+
+    }
+
+
+    /* =====================================
+       TOAST
+    ====================================== */
+
+    .toast {
+
+      position: fixed;
+
+      left: 50%;
+
+      bottom:
+        calc(
+          var(--composer-height)
+          + 15px
+        );
+
+      transform:
+        translateX(-50%)
+        translateY(20px);
+
+      background: #20202a;
+
+      color: white;
+
+      padding:
+        11px 17px;
+
+      border-radius: 13px;
+
+      font-size: 11px;
+
+      opacity: 0;
+
+      pointer-events: none;
+
+      transition: .3s ease;
+
+      z-index: 200;
+
+      white-space: nowrap;
+
+    }
+
+
+    .toast.show {
+
+      opacity: 1;
+
+      transform:
+        translateX(-50%)
+        translateY(0);
+
+    }
+
+
+    /* =====================================
+       RESPONSIVE
+    ====================================== */
+
+    @media (max-width: 700px) {
+
+      :root {
+
+        --composer-height: 68px;
+
+      }
+
+
+      .app {
+
+        padding-bottom:
+          calc(
+            var(--composer-height)
+            + 25px
+          );
+
+      }
+
+
+      .header {
+
+        height: 70px;
+
+        padding:
+          0 14px;
+
+      }
+
+
+      main {
+
+        padding:
+          0 14px;
+
+      }
+
+
+      .chat-header {
+
+        margin-top: 14px;
+
+        border-radius: 22px;
+
+      }
+
+
+      .chat-box {
+
+        border-radius: 22px;
+
+      }
+
+
+      .messages {
+
+        min-height: 520px;
+
+        max-height: none;
+
+      }
+
+
+      .message {
+
+        max-width: 84%;
+
+      }
+
+
+      .composer {
+
+        padding:
+          9px 14px;
+
+      }
+
+    }
+
+
+    @media (max-width: 400px) {
+
+      :root {
+
+        --composer-height: 64px;
+
+      }
+
+
+      .brand-main {
+
+        font-size: 19px;
+
+      }
+
+
+      .brand-icon {
+
+        width: 27px;
+
+        height: 27px;
+
+      }
+
+
+      .chat-header {
+
+        padding: 13px;
+
+      }
+
+
+      .support-avatar {
+
+        width: 50px;
+
+        height: 50px;
+
+        min-width: 50px;
+
+      }
+
+
+      .chat-title {
+
+        font-size: 15px;
+
+      }
+
+
+      .chat-subtitle {
+
+        font-size: 9px;
+
+      }
+
+
+      .chat-actions {
+
+        gap: 4px;
+
+      }
+
+
+      .chat-action {
+
+        width: 34px;
+
+        height: 34px;
+
+        border-radius: 11px;
+
+      }
+
+
+      .message {
+
+        max-width: 88%;
+
+      }
+
+
+      .message-text {
+
+        font-size: 12px;
+
+      }
+
+
+      .composer {
+
+        padding:
+          7px 9px;
+
+        gap: 6px;
+
+      }
+
+
+      .attach-button {
+
+        width: 39px;
+
+        height: 39px;
+
+        min-width: 39px;
+
+      }
+
+
+      .send-button {
+
+        width: 42px;
+
+        height: 42px;
+
+        min-width: 42px;
+
+      }
+
+
+      .input-wrap {
+
+        border-radius: 14px;
+
+      }
+
+    }
+
+  </style>
+
+</head>
+
+
+<body>
+
+
+  <div class="app">
+
+
+    <!-- =================================
+         HEADER با لوگوی NET LAND (همون ایندکس)
+    ================================== -->
+
+    <header class="header">
+
+      <div class="header-side left">
+
+        <button
+          class="icon-button"
+          type="button"
+          aria-label="بازگشت"
+          onclick="goBack()"
+        >
+
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <path d="m15 18-6-6 6-6"/>
+          </svg>
+
+        </button>
+
+      </div>
+
+      <!-- ===== لوگوی Net Land (همون ایندکس) ===== -->
+      <div class="netland-header-logo" aria-label="Net Land">
+        <img 
+          src="data:image/svg+xml;charset=UTF-8,%3Csvg xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' width='760' height='300' viewBox='0 0 760 300' fill='none' role='img'%3E%3Cdefs%3E%3ClinearGradient id='NMainGradient' x1='95' y1='45' x2='315' y2='255' gradientUnits='userSpaceOnUse'%3E%3Cstop offset='0' stop-color='%23E5B5FF'/%3E%3Cstop offset='0.16' stop-color='%23C56EFF'/%3E%3Cstop offset='0.38' stop-color='%23963FEF'/%3E%3Cstop offset='0.63' stop-color='%237130DE'/%3E%3Cstop offset='0.82' stop-color='%235520B9'/%3E%3Cstop offset='1' stop-color='%23351080'/%3E%3C/linearGradient%3E%3ClinearGradient id='NLeftGradient' x1='70' y1='70' x2='180' y2='245' gradientUnits='userSpaceOnUse'%3E%3Cstop offset='0' stop-color='%23D99AFF'/%3E%3Cstop offset='0.3' stop-color='%23A950F5'/%3E%3Cstop offset='0.65' stop-color='%237B2FE1'/%3E%3Cstop offset='1' stop-color='%234816A5'/%3E%3C/linearGradient%3E%3ClinearGradient id='NRightGradient' x1='245' y1='45' x2='310' y2='260' gradientUnits='userSpaceOnUse'%3E%3Cstop offset='0' stop-color='%23C987FF'/%3E%3Cstop offset='0.28' stop-color='%239745F3'/%3E%3Cstop offset='0.65' stop-color='%236727D0'/%3E%3Cstop offset='1' stop-color='%233D128D'/%3E%3C/linearGradient%3E%3ClinearGradient id='NHighlight' x1='105' y1='55' x2='210' y2='185' gradientUnits='userSpaceOnUse'%3E%3Cstop offset='0' stop-color='%23FFFFFF' stop-opacity='.78'/%3E%3Cstop offset='.22' stop-color='%23F3D9FF' stop-opacity='.46'/%3E%3Cstop offset='.55' stop-color='%23D9A4FF' stop-opacity='.12'/%3E%3Cstop offset='1' stop-color='%23FFFFFF' stop-opacity='0'/%3E%3C/linearGradient%3E%3ClinearGradient id='OrbitGradient' x1='25' y1='215' x2='370' y2='125' gradientUnits='userSpaceOnUse'%3E%3Cstop offset='0' stop-color='%23B63DCC'/%3E%3Cstop offset='.18' stop-color='%23E65BE5'/%3E%3Cstop offset='.42' stop-color='%23FF8AF2'/%3E%3Cstop offset='.62' stop-color='%23F16CEB'/%3E%3Cstop offset='.84' stop-color='%23B846D7'/%3E%3Cstop offset='1' stop-color='%237D25BD'/%3E%3C/linearGradient%3E%3ClinearGradient id='OrbitHighlight' x1='75' y1='180' x2='290' y2='125' gradientUnits='userSpaceOnUse'%3E%3Cstop offset='0' stop-color='%23FF9CF7' stop-opacity='0'/%3E%3Cstop offset='.45' stop-color='%23FFD7FC' stop-opacity='.95'/%3E%3Cstop offset='1' stop-color='%23FFFFFF' stop-opacity='.25'/%3E%3C/linearGradient%3E%3ClinearGradient id='NetGradient' x1='405' y1='65' x2='540' y2='145' gradientUnits='userSpaceOnUse'%3E%3Cstop offset='0' stop-color='%23FFFFFF'/%3E%3Cstop offset='.65' stop-color='%23F8F8FF'/%3E%3Cstop offset='1' stop-color='%23D9D9EA'/%3E%3C/linearGradient%3E%3ClinearGradient id='LandGradient' x1='410' y1='150' x2='555' y2='235' gradientUnits='userSpaceOnUse'%3E%3Cstop offset='0' stop-color='%23E0A1FF'/%3E%3Cstop offset='.3' stop-color='%23C66DFF'/%3E%3Cstop offset='.62' stop-color='%23A445F1'/%3E%3Cstop offset='1' stop-color='%237624D7'/%3E%3C/linearGradient%3E%3CradialGradient id='SphereGradient' cx='0' cy='0' r='1' gradientUnits='userSpaceOnUse' gradientTransform='translate(335 232) rotate(135) scale(28)'%3E%3Cstop offset='0' stop-color='%23FFE5FF'/%3E%3Cstop offset='.16' stop-color='%23FFB6FA'/%3E%3Cstop offset='.42' stop-color='%23D966F2'/%3E%3Cstop offset='.7' stop-color='%238735E2'/%3E%3Cstop offset='1' stop-color='%2342149B'/%3E%3C/radialGradient%3E%3Cfilter id='PurpleGlow' x='-100%25' y='-100%25' width='300%25' height='300%25'%3E%3CfeGaussianBlur stdDeviation='12' result='blur'/%3E%3CfeColorMatrix in='blur' type='matrix' values='1 0 0 0 .35 0 1 0 0 .05 0 0 1 0 .85 0 0 0 .8 0' result='coloredBlur'/%3E%3CfeMerge%3E%3CfeMergeNode in='coloredBlur'/%3E%3CfeMergeNode in='SourceGraphic'/%3E%3C/feMerge%3E%3C/filter%3E%3Cfilter id='OrbitGlow' x='-100%25' y='-100%25' width='300%25' height='300%25'%3E%3CfeGaussianBlur stdDeviation='6' result='blur'/%3E%3CfeMerge%3E%3CfeMergeNode in='blur'/%3E%3CfeMergeNode in='SourceGraphic'/%3E%3C/feMerge%3E%3C/filter%3E%3Cfilter id='TextShadow' x='-30%25' y='-30%25' width='160%25' height='170%25'%3E%3CfeDropShadow dx='0' dy='5' stdDeviation='3' flood-color='%23251052' flood-opacity='.55'/%3E%3C/filter%3E%3Cfilter id='NShadow' x='-50%25' y='-50%25' width='200%25' height='200%25'%3E%3CfeDropShadow dx='0' dy='10' stdDeviation='8' flood-color='%2317052F' flood-opacity='.58'/%3E%3C/filter%3E%3CclipPath id='NClip'%3E%3Cpath d='M 86 91 C 86 65 100 51 121 51 C 142 51 154 64 166 84 L 222 179 L 222 82 C 222 61 234 50 253 50 C 274 50 285 63 285 84 L 285 224 C 285 249 273 263 252 263 C 232 263 219 250 208 230 L 154 137 L 154 226 C 154 249 143 263 123 263 C 101 263 86 249 86 226 Z'/%3E%3C/clipPath%3E%3C/defs%3E%3Cg transform='translate(8 8)'%3E%3Cellipse cx='188' cy='158' rx='138' ry='108' fill='%237E38E8' opacity='.12' filter='url(%23PurpleGlow)'/%3E%3Cpath d='M 87 99 C 87 74 101 61 121 61 C 142 61 154 74 166 94 L 222 189 L 222 92 C 222 71 234 60 253 60 C 274 60 285 73 285 94 L 285 234 C 285 259 273 273 252 273 C 232 273 219 260 208 240 L 154 147 L 154 236 C 154 259 143 273 123 273 C 101 273 87 259 87 236 Z' fill='%23351078' opacity='.72' transform='translate(0 8)' filter='url(%23NShadow)'/%3E%3Cpath d='M 86 91 C 86 65 100 51 121 51 C 142 51 154 64 166 84 L 222 179 L 222 82 C 222 61 234 50 253 50 C 274 50 285 63 285 84 L 285 224 C 285 249 273 263 252 263 C 232 263 219 250 208 230 L 154 137 L 154 226 C 154 249 143 263 123 263 C 101 263 86 249 86 226 Z' fill='url(%23NMainGradient)' filter='url(%23NShadow)'/%3E%3Cpath d='M 86 91 C 86 65 100 51 121 51 C 142 51 154 64 166 84 L 191 127 L 154 178 L 154 226 C 154 249 143 263 123 263 C 101 263 86 249 86 226 Z' fill='url(%23NLeftGradient)'/%3E%3Cpath d='M 222 82 C 222 61 234 50 253 50 C 274 50 285 63 285 84 L 285 224 C 285 249 273 263 252 263 C 241 263 232 258 225 249 C 234 242 238 232 238 219 L 238 86 C 238 77 233 71 225 68 C 223 72 222 77 222 82 Z' fill='url(%23NRightGradient)' opacity='.92'/%3E%3Cpath d='M 154 137 L 208 230 C 219 250 232 263 252 263 C 241 253 236 243 228 229 L 176 140 Z' fill='%2330106D' opacity='.38'/%3E%3Cpath d='M 92 82 C 101 59 120 53 137 61 C 150 68 158 81 168 98 L 214 177 L 191 207 L 144 126 C 128 98 112 85 92 82 Z' fill='url(%23NHighlight)' opacity='.82' clip-path='url(%23NClip)'/%3E%3Cpath d='M 90 91 C 90 68 102 56 120 56 C 139 56 150 68 161 87' fill='none' stroke='%23F4D8FF' stroke-width='3' stroke-linecap='round' opacity='.72'/%3E%3Cpath d='M 225 81 C 225 62 236 55 252 55 C 269 55 281 65 281 84' fill='none' stroke='%23EFC9FF' stroke-width='3' stroke-linecap='round' opacity='.7'/%3E%3Cpath d='M 40 184 C 76 144 137 124 204 116 C 269 108 330 113 343 133 C 356 153 327 176 285 192' fill='none' stroke='%239A35CC' stroke-width='12' stroke-linecap='round' opacity='.52' filter='url(%23OrbitGlow)'/%3E%3Cpath d='M 40 184 C 76 144 137 124 204 116 C 269 108 330 113 343 133 C 356 153 327 176 285 192 C 232 212 166 226 106 226 C 67 226 44 211 40 195' fill='none' stroke='url(%23OrbitGradient)' stroke-width='10' stroke-linecap='round' stroke-linejoin='round' filter='url(%23OrbitGlow)'/%3E%3Cpath d='M 44 185 C 80 148 138 130 204 120 C 258 112 305 116 326 128' fill='none' stroke='url(%23OrbitHighlight)' stroke-width='3' stroke-linecap='round' opacity='.95'/%3E%3Cpath d='M 45 194 C 55 210 79 218 108 219 C 167 220 230 207 282 188' fill='none' stroke='%23FFB2F7' stroke-width='2.2' stroke-linecap='round' opacity='.65'/%3E%3Ccircle cx='335' cy='232' r='25' fill='%235A20C2' opacity='.5' filter='url(%23PurpleGlow)'/%3E%3Ccircle cx='335' cy='232' r='20' fill='url(%23SphereGradient)' stroke='%23B85DFF' stroke-width='1.5'/%3E%3Cellipse cx='328' cy='224' rx='7' ry='5' fill='%23FFFFFF' opacity='.55'/%3E%3Cg filter='url(%23TextShadow)'%3E%3Ctext x='390' y='138' font-family='Arial, Helvetica, sans-serif' font-size='82' font-weight='800' letter-spacing='-3' fill='url(%23NetGradient)'%3ENet%3C/text%3E%3C/g%3E%3Cg filter='url(%23TextShadow)'%3E%3Ctext x='390' y='218' font-family='Arial, Helvetica, sans-serif' font-size='82' font-weight='800' letter-spacing='-4' fill='url(%23LandGradient)'%3Eland%3C/text%3E%3C/g%3E%3Cpath d='M 397 80 L 510 80' stroke='%23FFFFFF' stroke-width='2' stroke-linecap='round' opacity='.22'/%3E%3Ccircle cx='393' cy='226' r='3' fill='%23D99AFF' opacity='.85'/%3E%3C/g%3E%3C/svg%3E" 
+          alt="Net Land Logo"
+          class="netland-logo-svg"
+          width="190"
+          height="75"
+        >
+      </div>
+
+      <div class="header-side right"></div>
+
+    </header>
+
+
+
+    <main>
+
+
+      <!-- =================================
+           CHAT HEADER
+      ================================== -->
+
+      <section class="chat-header">
+
+
+        <div class="support-avatar">
+
+          <svg viewBox="0 0 24 24">
+
+            <path
+              d="M21 11.5a8.4 8.4 0 0 1-9 8.5 9.2 9.2 0 0 1-4-.9L3 20l1.2-4A8.3 8.3 0 0 1 3 11.5 8.4 8.4 0 0 1 12 3a8.4 8.4 0 0 1 9 8.5z"
+            ></path>
+
+            <path d="M8 10h8"></path>
+
+            <path d="M8 14h5"></path>
+
+          </svg>
+
+        </div>
+
+
+        <div class="chat-info">
+
+          <div class="chat-title">
+            پشتیبانی نت لند
+          </div>
+
+          <div class="chat-subtitle">
+            پاسخگویی و راهنمایی کاربران
+          </div>
+
+        </div>
+
+
+        <div class="chat-actions">
+
+          <button
+            class="chat-action"
+            type="button"
+            aria-label="سوالات متداول"
+            onclick="location.href='faq.html'"
+          >
+
+            <svg viewBox="0 0 24 24">
+
+              <circle
+                cx="12"
+                cy="12"
+                r="9"
+              ></circle>
+
+              <path
+                d="M9.8 9a2.3 2.3 0 1 1 3.9 1.6c-.9.8-1.7 1.2-1.7 2.4"
+              ></path>
+
+              <path d="M12 16.5h.01"></path>
+
+            </svg>
+
+          </button>
+
+        </div>
+
+
+      </section>
+
+
+
+      <!-- =================================
+           CHAT BOX
+      ================================== -->
+
+      <section class="chat-box">
+
+
+        <div
+          class="messages"
+          id="messages"
+        >
+
+
+          <div class="date-divider">
+
+            <span>
+              امروز
+            </span>
+
+          </div>
+
+
+          <!-- SUPPORT MESSAGE - با کلاس welcome-message برای محافظت -->
+          <div class="message-row support welcome-message">
+
+            <div class="message">
+
+              <div class="message-sender">
+                پشتیبانی نت لند
+              </div>
+
+              <div class="message-text">
+
+                سلام، به پشتیبانی نت لند خوش آمدید.
+                اگر در استفاده از طرح‌ها یا جشنواره‌ها
+                مشکلی دارید، سوال خود را برای ما ارسال کنید.
+
+              </div>
+
+              <div class="message-meta">
+
+                <span class="message-time">
+                  ۱۰:۳۰
+                </span>
+
+              </div>
+
+            </div>
+
+          </div>
+
+
+        </div>
+
+
+        <!-- =================================
+             QUICK QUESTIONS
+        ================================== -->
+
+        <div class="quick-section">
+
+          <div class="quick-title">
+            سوالات سریع
+          </div>
+
+
+          <div class="quick-list">
+
+
+            <button
+              class="quick-btn"
+              type="button"
+              data-message="در دریافت جایزه یا پاداش طرح مشکل دارم."
+            >
+              مشکل در دریافت پاداش
+            </button>
+
+
+            <button
+              class="quick-btn"
+              type="button"
+              data-message="می‌خواهم درباره یک جشنواره اطلاعات بیشتری دریافت کنم."
+            >
+              اطلاعات جشنواره
+            </button>
+
+
+            <button
+              class="quick-btn"
+              type="button"
+              data-message="در نحوه انجام یکی از طرح‌ها نیاز به راهنمایی دارم."
+            >
+              راهنمای انجام طرح
+            </button>
+
+
+            <button
+              class="quick-btn"
+              type="button"
+              data-message="یک مشکل دیگر دارم و نیاز به راهنمایی دارم."
+            >
+              مشکل دیگر
+            </button>
+
+
+          </div>
+
+        </div>
+
+
+      </section>
+
+
+    </main>
+
+  </div>
+
+
+
+  <!-- =================================
+       FIXED MESSAGE COMPOSER
+  ================================== -->
+
+  <div class="composer-wrapper">
+
+
+    <div class="composer">
+
+
+      <!-- ATTACH -->
+
+      <button
+        class="attach-button"
+        type="button"
+        aria-label="پیوست"
+        onclick="showToast('امکان ارسال فایل در نسخه فعلی فعال نیست')"
+      >
+
+        <svg viewBox="0 0 24 24">
+
+          <path
+            d="M21.4 11.6l-8.9 8.9a6 6 0 0 1-8.5-8.5l9-9a4 4 0 0 1 5.7 5.7l-9 9a2 2 0 1 1-2.8-2.8l8.4-8.4"
+          ></path>
+
+        </svg>
+
+      </button>
+
+
+
+      <!-- INPUT -->
+
+      <div class="input-wrap">
+
+        <textarea
+          id="messageInput"
+          class="message-input"
+          rows="1"
+          placeholder="پیام خود را بنویسید..."
+          aria-label="متن پیام"
+        ></textarea>
+
+      </div>
+
+
+
+      <!-- SEND -->
+
+      <button
+        class="send-button"
+        type="button"
+        id="sendButton"
+        aria-label="ارسال پیام"
+      >
+
+        <svg viewBox="0 0 24 24">
+
+          <path d="M22 2L11 13"></path>
+
+          <path d="M22 2l-7 20-4-9-9-4z"></path>
+
+        </svg>
+
+      </button>
+
+
+    </div>
+
+  </div>
+
+
+
+  <!-- TOAST -->
+
+  <div
+    class="toast"
+    id="toast"
+  ></div>
+
+
+
+  <!-- =====================================
+       API Config (اتصال به Cloudflare Worker)
+  ====================================== -->
+
+  <script src="js/api-config.js"></script>
+
+
+  <script>
+
+    /* =================================
+       ELEMENTS
+    ================================== */
+
+    const messages =
+      document.getElementById("messages");
+
+    const messageInput =
+      document.getElementById("messageInput");
+
+    const sendButton =
+      document.getElementById("sendButton");
+
+    const toast =
+      document.getElementById("toast");
+
+    let userId = null;
+    let userName = null;
+
+
+    /* =================================
+       دریافت شناسه کاربر
+    ================================== */
+
+    function getUserId() {
+      let id = localStorage.getItem('netland_user_id');
+      if (!id) {
+        id = 'user_' + Date.now() + '_' + Math.random().toString(36).substr(2, 6);
+        localStorage.setItem('netland_user_id', id);
+      }
+      return id;
+    }
+
+    function getUserName() {
+      let name = localStorage.getItem('netland_username');
+      if (!name) {
+        name = 'کاربر مهمان';
+      }
+      return name;
+    }
+
+
+    /* =================================
+       بارگذاری پیام‌ها از Worker (فقط پیام‌های کاربر فعلی)
+    ================================== */
+
+    /* =================================
+   بارگذاری پیام‌ها از Worker (با دریافت پاسخ ادمین)
+================================== */
+
+async function loadMessages() {
+  try {
+    // ===== استفاده از getUserSupportMessages به جای getSupportMessages =====
+    const userMessages = await getUserSupportMessages(userId);
+    
+    // پاک کردن پیام‌های قبلی (به جز پیام خوش‌آمدگویی)
+    const existingMessages = messages.querySelectorAll('.message-row:not(.welcome-message)');
+    existingMessages.forEach(el => el.remove());
+    
+    // مرتب‌سازی بر اساس زمان (قدیمی به جدید)
+    userMessages.sort((a, b) => {
+      const dateA = a.createdAt ? new Date(a.createdAt).getTime() : 0;
+      const dateB = b.createdAt ? new Date(b.createdAt).getTime() : 0;
+      return dateA - dateB;
+    });
+    
+    // نمایش پیام‌ها
+    userMessages.forEach(msg => {
+      // اگه پیام از طرف ادمین باشه
+      if (msg.isAdmin === true || msg.repliedBy === 'admin') {
+        appendMessage('admin', msg.message || msg.reply, msg.createdAt || msg.repliedAt, 'پشتیبانی نت لند');
+      } else {
+        // پیام کاربر
+        appendMessage('user', msg.message, msg.createdAt);
+        
+        // اگر پاسخ ادمین وجود داره
+        if (msg.reply || msg.replyText) {
+          const replyText = msg.reply || msg.replyText;
+          appendMessage('admin', replyText, msg.repliedAt || msg.createdAt, 'پشتیبانی نت لند');
+        }
+      }
+    });
+
+    scrollToBottom();
+
+  } catch (error) {
+    console.warn('⚠️ خطا در خواندن پیام‌ها:', error);
+  }
+}
+
+
+    /* =================================
+       افزودن پیام به چت
+    ================================== */
+
+    function appendMessage(type, text, time, senderName) {
+
+      const row = document.createElement("div");
+      row.className = "message-row " + type;
+
+      const bubble = document.createElement("div");
+      bubble.className = "message";
+
+      // فرستنده (برای پیام‌های پشتیبانی و ادمین)
+      if (type === 'support' || type === 'admin') {
+        const sender = document.createElement("div");
+        sender.className = "message-sender";
+        sender.textContent = senderName || 'پشتیبانی نت لند';
+        bubble.appendChild(sender);
+      }
+
+      // متن پیام
+      const textElement = document.createElement("div");
+      textElement.className = "message-text";
+      textElement.textContent = text;
+      bubble.appendChild(textElement);
+
+      // زمان
+      const meta = document.createElement("div");
+      meta.className = "message-meta";
+
+      const timeEl = document.createElement("span");
+      timeEl.className = "message-time";
+      
+      // تبدیل تاریخ به زمان
+      if (time && typeof time === 'string') {
+        try {
+          const date = new Date(time);
+          if (!isNaN(date.getTime())) {
+            timeEl.textContent = date.toLocaleTimeString('fa-IR', {
+              hour: '2-digit',
+              minute: '2-digit'
+            });
+          } else {
+            timeEl.textContent = time;
+          }
+        } catch {
+          timeEl.textContent = time;
+        }
+      } else if (time && time.seconds) {
+        timeEl.textContent = new Date(time.seconds * 1000).toLocaleTimeString('fa-IR', {
+          hour: '2-digit',
+          minute: '2-digit'
+        });
+      } else {
+        timeEl.textContent = getCurrentTime();
+      }
+      
+      meta.appendChild(timeEl);
+
+      // تیک (برای پیام‌های کاربر)
+      if (type === 'user') {
+        const check = document.createElementNS("http://www.w3.org/2000/svg", "svg");
+        check.setAttribute("class", "message-check");
+        check.setAttribute("viewBox", "0 0 24 24");
+        const path = document.createElementNS("http://www.w3.org/2000/svg", "path");
+        path.setAttribute("d", "M4 12l4 4L20 4");
+        check.appendChild(path);
+        meta.appendChild(check);
+      }
+
+      bubble.appendChild(meta);
+      row.appendChild(bubble);
+      messages.appendChild(row);
+
+    }
+
+
+    /* =================================
+       ارسال پیام به Worker
+    ================================== */
+
+    async function sendMessage(text) {
+
+      const message = (text || messageInput.value).trim();
+      if (!message) return;
+
+      // نمایش سریع در چت
+      appendMessage('user', message, getCurrentTime());
+      messageInput.value = "";
+      autoResize();
+      scrollToBottom();
+
+      try {
+        await sendSupportMessage(getUserId(), getUserName(), message);
+        console.log('✅ پیام ارسال شد!');
+        
+        // بعد از ارسال، دوباره بارگذاری کن تا پاسخ ادمین بیاد
+        setTimeout(() => loadMessages(), 2000);
+
+      } catch (error) {
+        console.warn('⚠️ خطا در ارسال پیام:', error);
+        showToast('❌ خطا در ارسال پیام');
+      }
+
+    }
+
+
+    /* =================================
+       CURRENT TIME
+    ================================== */
+
+    function getCurrentTime() {
+
+      const now = new Date();
+      return now.toLocaleTimeString("fa-IR", {
+        hour: "2-digit",
+        minute: "2-digit"
+      });
+
+    }
+
+
+    /* =================================
+       SEND BUTTON
+    ================================== */
+
+    sendButton.addEventListener("click", function () {
+      sendMessage();
+    });
+
+
+    /* =================================
+       ENTER TO SEND
+    ================================== */
+
+    messageInput.addEventListener("keydown", function (event) {
+      if (event.key === "Enter" && !event.shiftKey) {
+        event.preventDefault();
+        sendMessage();
+      }
+    });
+
+
+    /* =================================
+       AUTO RESIZE
+    ================================== */
+
+    function autoResize() {
+      messageInput.style.height = "auto";
+      messageInput.style.height = Math.min(messageInput.scrollHeight, 110) + "px";
+    }
+
+    messageInput.addEventListener("input", autoResize);
+
+
+    /* =================================
+       QUICK QUESTIONS
+    ================================== */
+
+    document.querySelectorAll(".quick-btn").forEach(function (button) {
+      button.addEventListener("click", function () {
+        const text = button.dataset.message;
+        sendMessage(text);
+      });
+    });
+
+
+    /* =================================
+       SCROLL TO BOTTOM
+    ================================== */
+
+    function scrollToBottom() {
+      setTimeout(function () {
+        messages.scrollTop = messages.scrollHeight;
+      }, 100);
+    }
+
+
+    /* =================================
+       TOAST
+    ================================== */
+
+    let toastTimer;
+
+    function showToast(text) {
+      toast.textContent = text;
+      toast.classList.add("show");
+      clearTimeout(toastTimer);
+      toastTimer = setTimeout(function () {
+        toast.classList.remove("show");
+      }, 2500);
+    }
+
+
+    /* =================================
+       BACK
+    ================================== */
+
+    function goBack() {
+      if (window.history.length > 1) {
+        window.history.back();
+      } else {
+        window.location.href = "index.html";
+      }
+    }
+
+
+    /* =================================
+       INITIAL
+    ================================== */
+
+    userId = getUserId();
+    userName = getUserName();
+
+    // بارگذاری پیام‌ها
+    loadMessages();
+    console.log('🔥 پشتیبانی به Cloudflare Worker متصل شد!');
+    console.log('👤 کاربر:', userName, '(', userId, ')');
+
+    autoResize();
+    scrollToBottom();
+
+    // بارگذاری مجدد هر ۱۰ ثانیه (برای دریافت پیام‌های جدید)
+    setInterval(function() {
+      loadMessages();
+    }, 10000);
+
+  </script>
+
+
+</body>
+
+</html>
