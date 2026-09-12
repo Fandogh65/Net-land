@@ -24,6 +24,26 @@
     rel="stylesheet"
   >
 
+  <script>
+    // ============================================
+    // ===== اعمال خودکار تم ذخیره‌شده (ضد فلش) =====
+    // ============================================
+    (function() {
+      try {
+        const savedTheme = localStorage.getItem("netland_theme");
+        if (savedTheme === "dark") {
+          document.documentElement.setAttribute("data-theme", "dark");
+        } else if (savedTheme === "light") {
+          document.documentElement.removeAttribute("data-theme");
+        } else {
+          if (window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches) {
+            document.documentElement.setAttribute("data-theme", "dark");
+          }
+        }
+      } catch (e) {}
+    })();
+  </script>
+
   <style>
 
     :root {
@@ -63,6 +83,29 @@
       --container: 1100px;
     }
 
+    /* =========================================
+       DARK MODE
+    ========================================= */
+    [data-theme="dark"] {
+      --primary: #8b5cf6;
+      --primary-2: #a78bfa;
+      --primary-light: #2d1b4e;
+      --blue: #60a5fa;
+      --green: #34d399;
+      --green-light: #1a3a2e;
+      --orange: #fbbf24;
+      --orange-light: #3d2e0a;
+      --yellow: #fcd34d;
+      --bg: #0f0f17;
+      --white: #1a1a2e;
+      --text: #f1f1f6;
+      --text-secondary: #a1a1b5;
+      --text-muted: #6b6b80;
+      --border: #2a2a40;
+      --shadow-sm: 0 5px 18px rgba(0, 0, 0, 0.3);
+      --shadow-md: 0 12px 30px rgba(0, 0, 0, 0.4);
+    }
+
     * {
       margin: 0;
       padding: 0;
@@ -79,6 +122,7 @@
       color: var(--text);
       min-height: 100vh;
       -webkit-font-smoothing: antialiased;
+      transition: background .3s ease, color .3s ease;
     }
 
     button,
@@ -116,6 +160,7 @@
       align-items: center;
       position: relative;
       z-index: 20;
+      transition: background .3s ease;
     }
 
     .header-side {
@@ -138,6 +183,14 @@
     }
     .icon-button:hover { background: #f5f3fa; color: var(--primary); }
 
+    [data-theme="dark"] .icon-button {
+      color: #c1c1d1;
+    }
+    [data-theme="dark"] .icon-button:hover {
+      background: #2a2a40;
+      color: var(--primary-2);
+    }
+
     .notification { position: relative; }
     .notification-dot {
       position: absolute;
@@ -148,6 +201,10 @@
       border-radius: 50%;
       background: var(--primary);
       border: 2px solid white;
+    }
+
+    [data-theme="dark"] .notification-dot {
+      border-color: var(--white);
     }
 
     /* ===== لوگوی Net Land (همون ایندکس) ===== */
@@ -347,7 +404,9 @@
 
       transition:
         box-shadow .22s ease,
-        transform .22s ease;
+        transform .22s ease,
+        background .3s ease,
+        border-color .3s ease;
     }
 
     .faq-item:hover {
@@ -356,6 +415,10 @@
       box-shadow:
         0 10px 26px
         rgba(40, 30, 80, .08);
+    }
+
+    [data-theme="dark"] .faq-item:hover {
+      box-shadow: 0 10px 26px rgba(0,0,0,.3);
     }
 
     .faq-question {
@@ -440,6 +503,11 @@
         color .25s ease;
     }
 
+    [data-theme="dark"] .faq-arrow {
+      background: #2a2a40;
+      color: #a1a1b5;
+    }
+
     .faq-answer {
       display: grid;
 
@@ -476,6 +544,10 @@
       box-shadow:
         0 10px 27px
         rgba(70, 40, 140, .09);
+    }
+
+    [data-theme="dark"] .faq-item.active {
+      box-shadow: 0 10px 27px rgba(0,0,0,.35);
     }
 
     .faq-item.active
@@ -528,6 +600,13 @@
       justify-content: space-between;
 
       gap: 18px;
+
+      transition: background .3s ease, border-color .3s ease;
+    }
+
+    [data-theme="dark"] .support-card {
+      background: #1e1b30;
+      border-color: #2d2850;
     }
 
     .support-content {
@@ -553,6 +632,12 @@
 
       color:
         var(--primary);
+
+      transition: background .3s ease;
+    }
+
+    [data-theme="dark"] .support-icon {
+      background: #2a2a40;
     }
 
     .support-title {
@@ -641,7 +726,7 @@
         calc(8px + env(safe-area-inset-bottom));
 
       background:
-        white;
+        var(--white);
 
       border-radius:
         26px 26px 0 0;
@@ -658,6 +743,12 @@
       align-items: center;
 
       pointer-events: auto;
+
+      transition: background .3s ease;
+    }
+
+    [data-theme="dark"] .bottom-nav {
+      box-shadow: 0 -7px 25px rgba(0,0,0,.4);
     }
 
     .nav-item {
@@ -682,6 +773,10 @@
       transition: .2s ease;
 
       background: transparent;
+    }
+
+    [data-theme="dark"] .nav-item {
+      color: #6b6b80;
     }
 
     .nav-item:hover {
@@ -759,6 +854,11 @@
         transform .25s ease;
 
       white-space: nowrap;
+    }
+
+    [data-theme="dark"] .toast {
+      background: #f1f1f6;
+      color: #1a1a2e;
     }
 
     .toast.show {
@@ -1631,4 +1731,5 @@
 </script>
 
 </body>
+
 </html>

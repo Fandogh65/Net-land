@@ -7,21 +7,70 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <script>
+    // ============================================
+    // ===== اعمال خودکار تم ذخیره‌شده (ضد فلش) =====
+    // ============================================
+    (function() {
+      try {
+        const savedTheme = localStorage.getItem("netland_theme");
+        if (savedTheme === "dark") {
+          document.documentElement.setAttribute("data-theme", "dark");
+        } else if (savedTheme === "light") {
+          document.documentElement.removeAttribute("data-theme");
+        } else {
+          if (window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches) {
+            document.documentElement.setAttribute("data-theme", "dark");
+          }
+        }
+      } catch (e) {}
+    })();
+  </script>
   <style>
     :root{--primary:#6d35e8;--primary-2:#8255f3;--primary-light:#f0ebff;--blue:#4f7cff;--green:#25b96f;--green-light:#e9f9f0;--orange:#f3a623;--orange-light:#fff3dc;--red:#e55353;--red-light:#fff0f0;--pink:#e83e8c;--pink-light:#fde8f0;--yellow:#ffc83d;--bg:#f8f8fc;--white:#ffffff;--text:#20202a;--text-secondary:#6f7180;--text-muted:#999ba8;--border:#ececf3;--shadow-sm:0 5px 18px rgba(40,30,80,0.05);--shadow-md:0 12px 30px rgba(70,40,140,0.12);--radius-lg:26px;--radius-md:22px;--radius-sm:15px;--container:1100px}
+
+    /* =========================================
+       DARK MODE
+    ========================================= */
+    [data-theme="dark"] {
+      --primary: #8b5cf6;
+      --primary-2: #a78bfa;
+      --primary-light: #2d1b4e;
+      --blue: #60a5fa;
+      --green: #34d399;
+      --green-light: #1a3a2e;
+      --orange: #fbbf24;
+      --orange-light: #3d2e0a;
+      --red: #f87171;
+      --red-light: #3d1a1a;
+      --pink: #f472b6;
+      --pink-light: #3d1a2e;
+      --yellow: #fcd34d;
+      --bg: #0f0f17;
+      --white: #1a1a2e;
+      --text: #f1f1f6;
+      --text-secondary: #a1a1b5;
+      --text-muted: #6b6b80;
+      --border: #2a2a40;
+      --shadow-sm: 0 5px 18px rgba(0, 0, 0, 0.3);
+      --shadow-md: 0 12px 30px rgba(0, 0, 0, 0.4);
+    }
+
     *{margin:0;padding:0;box-sizing:border-box}
     html{scroll-behavior:smooth}
-    body{font-family:"Vazirmatn",sans-serif;background:var(--bg);color:var(--text);min-height:100vh;-webkit-font-smoothing:antialiased}
+    body{font-family:"Vazirmatn",sans-serif;background:var(--bg);color:var(--text);min-height:100vh;-webkit-font-smoothing:antialiased;transition:background .3s ease,color .3s ease}
     button,input{font-family:inherit}button{border:0;cursor:pointer}a{text-decoration:none;color:inherit}
     .app{width:100%;max-width:var(--container);margin:0 auto;min-height:100vh;padding-bottom:110px}
     
     /* ===== HEADER ===== */
-    .header{height:76px;padding:0 22px;background:var(--white);display:grid;grid-template-columns:0.8fr auto 1.5fr;align-items:center;position:relative;z-index:20}
+    .header{height:76px;padding:0 22px;background:var(--white);display:grid;grid-template-columns:0.8fr auto 1.5fr;align-items:center;position:relative;z-index:20;transition:background .3s ease}
     .header-side{display:flex;align-items:center}
     .header-side.left{justify-content:flex-start}
     .header-side.right{justify-content:flex-end}
     .icon-button{width:44px;height:44px;display:flex;align-items:center;justify-content:center;border-radius:14px;background:transparent;color:#343441;transition:.2s ease}
     .icon-button:hover{background:#f5f3fa;color:var(--primary)}
+    [data-theme="dark"] .icon-button{color:#c1c1d1}
+    [data-theme="dark"] .icon-button:hover{background:#2a2a40;color:var(--primary-2)}
     
     /* ===== لوگوی جدید Net Land ===== */
     .netland-header-logo{width:190px;height:75px;display:flex;align-items:center;justify-content:center;flex-shrink:0;overflow:visible}
@@ -35,23 +84,28 @@
     .page-title svg{color:var(--primary)}
     .page-description{margin-top:7px;color:var(--text-secondary);font-size:12.5px;line-height:1.8}
     .search-box{position:relative;margin-bottom:15px}
-    .search-input{width:100%;height:52px;padding:0 48px;border:1px solid var(--border);border-radius:17px;background:var(--white);color:var(--text);font-size:13px;outline:none;box-shadow:var(--shadow-sm);transition:border-color .2s ease,box-shadow .2s ease}
+    .search-input{width:100%;height:52px;padding:0 48px;border:1px solid var(--border);border-radius:17px;background:var(--white);color:var(--text);font-size:13px;outline:none;box-shadow:var(--shadow-sm);transition:border-color .2s ease,box-shadow .2s ease,background .3s ease}
     .search-input::placeholder{color:#a1a2ad}
     .search-input:focus{border-color:#d8cdf7;box-shadow:0 7px 22px rgba(109,53,232,.08)}
+    [data-theme="dark"] .search-input::placeholder{color:#6b6b80}
+    [data-theme="dark"] .search-input:focus{border-color:#3d2e6a;box-shadow:0 7px 22px rgba(139,92,246,.15)}
     .search-icon{position:absolute;right:17px;top:50%;transform:translateY(-50%);color:#858693;pointer-events:none}
     .clear-search{position:absolute;left:10px;top:50%;transform:translateY(-50%);width:34px;height:34px;display:none;align-items:center;justify-content:center;border-radius:10px;background:#f5f3fa;color:#777887}
     .clear-search.show{display:flex}
+    [data-theme="dark"] .clear-search{background:#2a2a40;color:#a1a1b5}
     .filters{display:flex;align-items:center;gap:8px;overflow-x:auto;padding:2px 1px 7px;scrollbar-width:none}
     .filters::-webkit-scrollbar{display:none}
     .filter-button{flex:0 0 auto;min-height:39px;padding:0 15px;border:1px solid var(--border);border-radius:13px;background:var(--white);color:var(--text-secondary);font-size:11.5px;font-weight:600;transition:background .2s ease,color .2s ease,border-color .2s ease,transform .2s ease}
     .filter-button:hover{transform:translateY(-1px);color:var(--primary);border-color:#ded5f7}
+    [data-theme="dark"] .filter-button:hover{border-color:#3d2e6a}
     .filter-button.active{color:white;background:var(--primary);border-color:var(--primary);box-shadow:0 6px 14px rgba(109,53,232,.18)}
     .results-header{display:flex;align-items:center;justify-content:space-between;margin-top:18px;margin-bottom:12px}
     .results-title{font-size:15px;font-weight:700}
     .results-count{color:var(--text-muted);font-size:11px}
     .festival-list{display:flex;flex-direction:column;gap:12px}
-    .festival-card{position:relative;display:grid;grid-template-columns:72px 1fr auto;align-items:center;gap:15px;min-height:132px;padding:17px;background:var(--white);border:1px solid var(--border);border-radius:var(--radius-md);box-shadow:var(--shadow-sm);cursor:pointer;transition:transform .22s ease,box-shadow .22s ease}
+    .festival-card{position:relative;display:grid;grid-template-columns:72px 1fr auto;align-items:center;gap:15px;min-height:132px;padding:17px;background:var(--white);border:1px solid var(--border);border-radius:var(--radius-md);box-shadow:var(--shadow-sm);cursor:pointer;transition:transform .22s ease,box-shadow .22s ease,background .3s ease}
     .festival-card:hover{transform:translateY(-3px);box-shadow:0 10px 26px rgba(40,30,80,.08)}
+    [data-theme="dark"] .festival-card:hover{box-shadow:0 10px 26px rgba(0,0,0,.3)}
     .festival-card.hidden{display:none}
     
     /* ===== آیکون‌های رنگی جشنواره ===== */
@@ -62,6 +116,7 @@
     .festival-icon.pink{background:var(--pink-light);color:var(--pink)}
     .festival-icon.orange{background:var(--orange-light);color:var(--orange)}
     .festival-icon.red{background:var(--red-light);color:var(--red)}
+    [data-theme="dark"] .festival-icon.blue{background:#1a2a4a}
     
     .festival-content{min-width:0}
     .festival-badge{width:fit-content;display:inline-flex;padding:5px 9px;margin-bottom:6px;border-radius:9px;font-size:10.5px;font-weight:600}
@@ -70,14 +125,17 @@
     .badge-pink{color:#c92a7a;background:var(--pink-light)}
     .badge-orange{color:#dc9419;background:var(--orange-light)}
     .badge-red{color:#c92a2a;background:var(--red-light)}
+    [data-theme="dark"] .badge-blue{background:#1a2a4a;color:#60a5fa}
     .festival-title{color:var(--text);font-size:16px;font-weight:700;margin-bottom:5px}
     .festival-description{color:var(--text-secondary);font-size:12px;line-height:1.7;margin-bottom:8px}
     .festival-meta{display:flex;align-items:center;gap:6px;color:var(--text-muted);font-size:10.5px}
     .festival-meta svg{color:#8b8c98;flex-shrink:0}
+    [data-theme="dark"] .festival-meta svg{color:var(--text-muted)}
     .festival-actions{display:flex;flex-direction:column;align-items:flex-end;justify-content:center;gap:10px}
     .festival-action{display:flex;align-items:center;gap:4px;color:var(--primary);font-size:11.5px;font-weight:600;white-space:nowrap;cursor:pointer;background:transparent;transition:.2s ease}
     .festival-action:hover{gap:7px}
     .favorite-button{width:42px;height:42px;display:flex;align-items:center;justify-content:center;border-radius:14px;background:#f7f6fb;color:#8c8d9b;transition:.2s ease}
+    [data-theme="dark"] .favorite-button{background:#2a2a40;color:#6b6b80}
     .favorite-button:hover{background:var(--primary-light);color:var(--primary);transform:scale(1.04)}
     .favorite-button.active{background:var(--primary-light);color:var(--primary)}
     .favorite-button.active svg{fill:currentColor}
@@ -87,13 +145,16 @@
     .empty-title{font-size:15px;font-weight:700;margin-bottom:6px}
     .empty-text{color:var(--text-secondary);font-size:11.5px;line-height:1.8}
     .bottom-nav-wrapper{position:fixed;bottom:0;left:0;right:0;z-index:100;display:flex;justify-content:center;pointer-events:none}
-    .bottom-nav{width:min(var(--container),100%);height:82px;padding:8px 25px calc(8px + env(safe-area-inset-bottom));background:white;border-radius:26px 26px 0 0;box-shadow:0 -7px 25px rgba(30,20,70,.07);display:grid;grid-template-columns:repeat(4,1fr);align-items:center;pointer-events:auto}
+    .bottom-nav{width:min(var(--container),100%);height:82px;padding:8px 25px calc(8px + env(safe-area-inset-bottom));background:var(--white);border-radius:26px 26px 0 0;box-shadow:0 -7px 25px rgba(30,20,70,.07);display:grid;grid-template-columns:repeat(4,1fr);align-items:center;pointer-events:auto;transition:background .3s ease}
+    [data-theme="dark"] .bottom-nav{box-shadow:0 -7px 25px rgba(0,0,0,.4)}
     .nav-item{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;color:#858693;font-size:10.5px;font-weight:500;cursor:pointer;height:100%;transition:.2s ease;background:transparent}
+    [data-theme="dark"] .nav-item{color:#6b6b80}
     .nav-item:hover{color:var(--primary)}
     .nav-icon{width:25px;height:25px;display:flex;align-items:center;justify-content:center}
     .nav-item.active{color:var(--primary);font-weight:600}
     .nav-item.active .nav-icon{width:46px;height:42px;border-radius:15px;color:white;background:var(--primary);box-shadow:0 7px 17px rgba(109,53,232,.28)}
     .toast{position:fixed;left:50%;bottom:102px;transform:translateX(-50%) translateY(12px);z-index:9999;padding:11px 18px;border-radius:14px;background:#20202a;color:white;font-size:12px;box-shadow:0 10px 30px rgba(0,0,0,.15);opacity:0;transition:opacity .25s ease,transform .25s ease;white-space:nowrap}
+    [data-theme="dark"] .toast{background:#f1f1f6;color:#1a1a2e}
     .toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
     @media(max-width:700px){.app{max-width:100%}.festival-card{grid-template-columns:58px 1fr;gap:12px;padding:14px}.festival-icon{width:58px;height:58px}.festival-actions{grid-column:2;flex-direction:row;align-items:center;justify-content:space-between;width:100%;margin-top:-2px}.festival-title{font-size:15px}.festival-description{font-size:11.5px}.favorite-button{width:40px;height:40px}.bottom-nav{padding-left:12px;padding-right:12px}}
     @media(max-width:400px){main{padding:0 14px}.header{padding:0 14px}.page-title{font-size:22px}.search-input{height:49px}.festival-card{grid-template-columns:54px 1fr}.festival-icon{width:54px;height:54px}.festival-title{font-size:14px}.festival-description{font-size:11px}}
@@ -254,7 +315,7 @@
   // ===== بارگذاری جشنواره‌ها از Worker =====
   async function loadFestivals() {
     const list = document.getElementById('festivalList');
-    list.innerHTML = '<div style="text-align:center;padding:30px;color:#6b7280;">در حال بارگذاری...</div>';
+    list.innerHTML = '<div style="text-align:center;padding:30px;color:var(--text-muted);">در حال بارگذاری...</div>';
 
     try {
       const festivals = await getFestivals();

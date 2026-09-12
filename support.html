@@ -25,6 +25,26 @@
     rel="stylesheet"
   >
 
+  <script>
+    // ============================================
+    // ===== اعمال خودکار تم ذخیره‌شده (ضد فلش) =====
+    // ============================================
+    (function() {
+      try {
+        const savedTheme = localStorage.getItem("netland_theme");
+        if (savedTheme === "dark") {
+          document.documentElement.setAttribute("data-theme", "dark");
+        } else if (savedTheme === "light") {
+          document.documentElement.removeAttribute("data-theme");
+        } else {
+          if (window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches) {
+            document.documentElement.setAttribute("data-theme", "dark");
+          }
+        }
+      } catch (e) {}
+    })();
+  </script>
+
   <style>
 
     :root {
@@ -68,6 +88,29 @@
 
     }
 
+    /* =========================================
+       DARK MODE
+    ========================================= */
+    [data-theme="dark"] {
+      --primary: #8b5cf6;
+      --primary-2: #a78bfa;
+      --primary-light: #2d1b4e;
+      --blue: #60a5fa;
+      --green: #34d399;
+      --green-light: #1a3a2e;
+      --orange: #fbbf24;
+      --orange-light: #3d2e0a;
+      --yellow: #fcd34d;
+      --bg: #0f0f17;
+      --white: #1a1a2e;
+      --text: #f1f1f6;
+      --text-secondary: #a1a1b5;
+      --text-muted: #6b6b80;
+      --border: #2a2a40;
+      --shadow-sm: 0 5px 18px rgba(0, 0, 0, 0.3);
+      --shadow-md: 0 12px 30px rgba(0, 0, 0, 0.4);
+    }
+
 
     * {
 
@@ -100,6 +143,8 @@
       -webkit-font-smoothing: antialiased;
 
       overflow-x: hidden;
+
+      transition: background .3s ease, color .3s ease;
 
     }
 
@@ -157,6 +202,7 @@
       top: 0;
       z-index: 50;
       border-bottom: 1px solid var(--border);
+      transition: background .3s ease, border-color .3s ease;
     }
 
     .header-side {
@@ -178,6 +224,14 @@
       transition: .2s ease;
     }
     .icon-button:hover { background: #f5f3fa; color: var(--primary); }
+
+    [data-theme="dark"] .icon-button {
+      color: #c1c1d1;
+    }
+    [data-theme="dark"] .icon-button:hover {
+      background: #2a2a40;
+      color: var(--primary-2);
+    }
 
     /* ===== لوگوی Net Land (همون ایندکس) ===== */
     .netland-header-logo {
@@ -420,6 +474,12 @@
       box-shadow:
         var(--shadow-sm);
 
+      transition: background .3s ease, border-color .3s ease;
+
+    }
+
+    [data-theme="dark"] .chat-box {
+      background: #12121c;
     }
 
 
@@ -459,6 +519,23 @@
         rgba(109,53,232,.25)
         transparent;
 
+      transition: background .3s ease;
+
+    }
+
+    [data-theme="dark"] .messages {
+      background:
+        radial-gradient(
+          circle at 10% 10%,
+          rgba(139,92,246,.06),
+          transparent 35%
+        ),
+        radial-gradient(
+          circle at 90% 80%,
+          rgba(167,139,250,.06),
+          transparent 35%
+        ),
+        #0f0f17;
     }
 
 
@@ -483,6 +560,10 @@
 
       border-radius: 20px;
 
+    }
+
+    [data-theme="dark"] .messages::-webkit-scrollbar-thumb {
+      background: rgba(139,92,246,.35);
     }
 
 
@@ -526,6 +607,13 @@
         0 3px 10px
         rgba(40,30,80,.04);
 
+      transition: background .3s ease, border-color .3s ease;
+    }
+
+    [data-theme="dark"] .date-divider span {
+      background: rgba(42,42,64,.86);
+      border-color: #2a2a40;
+      box-shadow: 0 3px 10px rgba(0,0,0,.3);
     }
 
 
@@ -575,6 +663,11 @@
 
     }
 
+    [data-theme="dark"] .message-row.admin .message {
+      background: #2d1b4e;
+      border-color: #3d2e6a;
+    }
+
 
     .message-row.admin .message-sender {
 
@@ -616,6 +709,14 @@
 
       border-bottom-right-radius: 5px;
 
+      transition: background .3s ease, border-color .3s ease;
+
+    }
+
+    [data-theme="dark"] .message-row.support .message {
+      background: #1a1a2e;
+      border-color: #2a2a40;
+      box-shadow: 0 3px 10px rgba(0,0,0,.3);
     }
 
 
@@ -737,6 +838,12 @@
 
       background: #f4f3f8;
 
+      transition: background .3s ease;
+
+    }
+
+    [data-theme="dark"] .quick-section {
+      background: #0f0f17;
     }
 
 
@@ -796,6 +903,11 @@
 
       transition: .2s ease;
 
+    }
+
+    [data-theme="dark"] .quick-btn {
+      background: #1a1a2e;
+      color: #a1a1b5;
     }
 
 
@@ -871,6 +983,13 @@
       backdrop-filter:
         blur(14px);
 
+      transition: background .3s ease, border-color .3s ease;
+
+    }
+
+    [data-theme="dark"] .composer {
+      background: rgba(26,26,46,.97);
+      box-shadow: 0 -8px 25px rgba(0,0,0,.4);
     }
 
 
@@ -900,6 +1019,11 @@
 
       transition: .2s ease;
 
+    }
+
+    [data-theme="dark"] .attach-button {
+      background: #2a2a40;
+      color: #a1a1b5;
     }
 
 
@@ -962,6 +1086,10 @@
 
     }
 
+    [data-theme="dark"] .input-wrap {
+      background: #2a2a40;
+    }
+
 
     .input-wrap:focus-within {
 
@@ -974,6 +1102,12 @@
         0 0 0 4px
         rgba(109,53,232,.06);
 
+    }
+
+    [data-theme="dark"] .input-wrap:focus-within {
+      background: #1a1a2e;
+      border-color: rgba(139,92,246,.5);
+      box-shadow: 0 0 0 4px rgba(139,92,246,.12);
     }
 
 
@@ -1135,6 +1269,11 @@
 
       white-space: nowrap;
 
+    }
+
+    [data-theme="dark"] .toast {
+      background: #f1f1f6;
+      color: #1a1a2e;
     }
 
 
@@ -1740,52 +1879,41 @@
 
 
     /* =================================
-       بارگذاری پیام‌ها از Worker (فقط پیام‌های کاربر فعلی)
+       بارگذاری پیام‌ها از Worker (با دریافت پاسخ ادمین)
     ================================== */
 
-    /* =================================
-   بارگذاری پیام‌ها از Worker (با دریافت پاسخ ادمین)
-================================== */
-
-async function loadMessages() {
-  try {
-    // ===== استفاده از getUserSupportMessages به جای getSupportMessages =====
-    const userMessages = await getUserSupportMessages(userId);
-    
-    // پاک کردن پیام‌های قبلی (به جز پیام خوش‌آمدگویی)
-    const existingMessages = messages.querySelectorAll('.message-row:not(.welcome-message)');
-    existingMessages.forEach(el => el.remove());
-    
-    // مرتب‌سازی بر اساس زمان (قدیمی به جدید)
-    userMessages.sort((a, b) => {
-      const dateA = a.createdAt ? new Date(a.createdAt).getTime() : 0;
-      const dateB = b.createdAt ? new Date(b.createdAt).getTime() : 0;
-      return dateA - dateB;
-    });
-    
-    // نمایش پیام‌ها
-    userMessages.forEach(msg => {
-      // اگه پیام از طرف ادمین باشه
-      if (msg.isAdmin === true || msg.repliedBy === 'admin') {
-        appendMessage('admin', msg.message || msg.reply, msg.createdAt || msg.repliedAt, 'پشتیبانی نت لند');
-      } else {
-        // پیام کاربر
-        appendMessage('user', msg.message, msg.createdAt);
+    async function loadMessages() {
+      try {
+        const userMessages = await getUserSupportMessages(userId);
         
-        // اگر پاسخ ادمین وجود داره
-        if (msg.reply || msg.replyText) {
-          const replyText = msg.reply || msg.replyText;
-          appendMessage('admin', replyText, msg.repliedAt || msg.createdAt, 'پشتیبانی نت لند');
-        }
+        const existingMessages = messages.querySelectorAll('.message-row:not(.welcome-message)');
+        existingMessages.forEach(el => el.remove());
+        
+        userMessages.sort((a, b) => {
+          const dateA = a.createdAt ? new Date(a.createdAt).getTime() : 0;
+          const dateB = b.createdAt ? new Date(b.createdAt).getTime() : 0;
+          return dateA - dateB;
+        });
+        
+        userMessages.forEach(msg => {
+          if (msg.isAdmin === true || msg.repliedBy === 'admin') {
+            appendMessage('admin', msg.message || msg.reply, msg.createdAt || msg.repliedAt, 'پشتیبانی نت لند');
+          } else {
+            appendMessage('user', msg.message, msg.createdAt);
+            
+            if (msg.reply || msg.replyText) {
+              const replyText = msg.reply || msg.replyText;
+              appendMessage('admin', replyText, msg.repliedAt || msg.createdAt, 'پشتیبانی نت لند');
+            }
+          }
+        });
+
+        scrollToBottom();
+
+      } catch (error) {
+        console.warn('⚠️ خطا در خواندن پیام‌ها:', error);
       }
-    });
-
-    scrollToBottom();
-
-  } catch (error) {
-    console.warn('⚠️ خطا در خواندن پیام‌ها:', error);
-  }
-}
+    }
 
 
     /* =================================
@@ -1800,7 +1928,6 @@ async function loadMessages() {
       const bubble = document.createElement("div");
       bubble.className = "message";
 
-      // فرستنده (برای پیام‌های پشتیبانی و ادمین)
       if (type === 'support' || type === 'admin') {
         const sender = document.createElement("div");
         sender.className = "message-sender";
@@ -1808,20 +1935,17 @@ async function loadMessages() {
         bubble.appendChild(sender);
       }
 
-      // متن پیام
       const textElement = document.createElement("div");
       textElement.className = "message-text";
       textElement.textContent = text;
       bubble.appendChild(textElement);
 
-      // زمان
       const meta = document.createElement("div");
       meta.className = "message-meta";
 
       const timeEl = document.createElement("span");
       timeEl.className = "message-time";
       
-      // تبدیل تاریخ به زمان
       if (time && typeof time === 'string') {
         try {
           const date = new Date(time);
@@ -1847,7 +1971,6 @@ async function loadMessages() {
       
       meta.appendChild(timeEl);
 
-      // تیک (برای پیام‌های کاربر)
       if (type === 'user') {
         const check = document.createElementNS("http://www.w3.org/2000/svg", "svg");
         check.setAttribute("class", "message-check");
@@ -1874,7 +1997,6 @@ async function loadMessages() {
       const message = (text || messageInput.value).trim();
       if (!message) return;
 
-      // نمایش سریع در چت
       appendMessage('user', message, getCurrentTime());
       messageInput.value = "";
       autoResize();
@@ -1884,7 +2006,6 @@ async function loadMessages() {
         await sendSupportMessage(getUserId(), getUserName(), message);
         console.log('✅ پیام ارسال شد!');
         
-        // بعد از ارسال، دوباره بارگذاری کن تا پاسخ ادمین بیاد
         setTimeout(() => loadMessages(), 2000);
 
       } catch (error) {
@@ -2002,7 +2123,6 @@ async function loadMessages() {
     userId = getUserId();
     userName = getUserName();
 
-    // بارگذاری پیام‌ها
     loadMessages();
     console.log('🔥 پشتیبانی به Cloudflare Worker متصل شد!');
     console.log('👤 کاربر:', userName, '(', userId, ')');
@@ -2010,7 +2130,6 @@ async function loadMessages() {
     autoResize();
     scrollToBottom();
 
-    // بارگذاری مجدد هر ۱۰ ثانیه (برای دریافت پیام‌های جدید)
     setInterval(function() {
       loadMessages();
     }, 10000);
