@@ -300,75 +300,28 @@
       width: 38%;
       height: 100%;
       z-index: 2;
-    }
-
-    .phone {
-      position: absolute;
-      left: 50%;
-      top: 50%;
-      transform: translate(-50%, -50%) rotate(-8deg);
-      width: 112px;
-      height: 205px;
-      border-radius: 25px;
-      padding: 7px;
-      background: linear-gradient(145deg, #191a35, #423278);
-      box-shadow: 0 20px 35px rgba(20, 10, 70, 0.32);
-    }
-
-    .phone-screen {
-      width: 100%;
-      height: 100%;
-      border-radius: 19px;
-      background:
-        radial-gradient(circle at 40% 30%, #8b6cff, transparent 35%),
-        linear-gradient(160deg, #3f2c99, #7252ec);
       display: flex;
       align-items: center;
       justify-content: center;
-      color: white;
     }
 
-    .phone-wifi {
-      width: 58px;
-      height: 58px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      border-radius: 18px;
-      background: rgba(255,255,255,.13);
-      backdrop-filter: blur(6px);
+    /* ===== آیکون دلخواه hero (جای گوشی و جعبه) ===== */
+    .hero-custom-icon {
+      width: 145%;
+      max-width: 340px;
+      height: auto;
+      object-fit: contain;
+      animation: heroIconFloat 4s ease-in-out infinite;
+      filter: drop-shadow(0 18px 32px rgba(20, 10, 60, 0.5));
+      user-select: none;
+      -webkit-user-drag: none;
+      position: relative;
+      z-index: 2;
     }
 
-    .gift {
-      position: absolute;
-      left: 48%;
-      bottom: 24px;
-      width: 75px;
-      height: 68px;
-      border-radius: 15px;
-      background: linear-gradient(145deg, #7e50ef, #5730c8);
-      box-shadow: 0 14px 25px rgba(30, 10, 80, 0.3);
-      transform: translateX(22px) rotate(7deg);
-    }
-    .gift::before {
-      content: "";
-      position: absolute;
-      top: 0;
-      left: 31px;
-      width: 12px;
-      height: 100%;
-      background: var(--yellow);
-    }
-    .gift::after {
-      content: "";
-      position: absolute;
-      top: -10px;
-      left: 19px;
-      width: 37px;
-      height: 22px;
-      border-radius: 50%;
-      border: 8px solid var(--yellow);
-      transform: rotate(-10deg);
+    @keyframes heroIconFloat {
+      0%, 100% { transform: translateY(0) rotate(-2deg); }
+      50%      { transform: translateY(-12px) rotate(2deg); }
     }
 
     .spark {
@@ -700,13 +653,12 @@
     @media (max-width:700px) {
       .app { max-width:100%; }
       .hero { min-height:275px; padding:24px 20px; }
-      .hero-content { width:68%; }
+      .hero-content { width:60%; }
       .hero-title { font-size:25px; }
       .hero-subtitle { font-size:15px; }
       .hero-description { font-size:12px; }
-      .hero-art { width:43%; left:-8px; }
-      .phone { width:95px; height:175px; }
-      .gift { width:62px; height:56px; }
+      .hero-art { width:48%; left:-12px; }
+      .hero-custom-icon { width: 140%; max-width: 300px; }
       .festival-card {
         grid-template-columns:58px 1fr;
         gap:12px;
@@ -735,10 +687,11 @@
       main { padding:0 14px; }
       .header { padding:0 14px; }
       .hero { min-height:290px; }
-      .hero-content { width:72%; }
-      .hero-art { opacity:.72; }
+      .hero-content { width:62%; }
+      .hero-art { opacity:.95; width:50%; left:-15px; }
       .hero-title { font-size:23px; }
       .hero-description { font-size:11px; }
+      .hero-custom-icon { width: 140%; max-width: 250px; }
       .festival-card { grid-template-columns:54px 1fr; }
       .festival-icon { width:54px; height:54px; }
     }
@@ -859,29 +812,17 @@
 
       <div class="hero-art">
 
-        <div class="spark one">✦</div>
-        <div class="spark two">✦</div>
-        <div class="spark three">✧</div>
+        <div class="spark one">°</div>
+        <div class="spark two">☆</div>
+        <div class="spark three">★</div>
 
-        <div class="phone">
-
-          <div class="phone-screen">
-
-            <div class="phone-wifi">
-
-              <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round">
-                <path d="M5 12.55a11 11 0 0 1 14.08 0"/>
-                <path d="M8.5 16.05a6 6 0 0 1 7 0"/>
-                <path d="M12 19.5h.01"/>
-              </svg>
-
-            </div>
-
-          </div>
-
-        </div>
-
-        <div class="gift"></div>
+        <!-- ===== آیکون دلخواه تو ===== -->
+        <!-- فایل عکس رو با اسم hero-icon.png کنار همین فایل html بذار -->
+        <img
+          src="hero-icon.png"
+          alt="Net Land"
+          class="hero-custom-icon"
+        >
 
       </div>
 
