@@ -1,0 +1,522 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>اعلان‌ها | نت لند</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <script>
+    (function() {
+      try {
+        const savedTheme = localStorage.getItem("netland_theme");
+        if (savedTheme === "dark") {
+          document.documentElement.setAttribute("data-theme", "dark");
+        } else if (savedTheme === "light") {
+          document.documentElement.removeAttribute("data-theme");
+        } else {
+          if (window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches) {
+            document.documentElement.setAttribute("data-theme", "dark");
+          }
+        }
+      } catch (e) {}
+    })();
+  </script>
+
+  <style>
+    :root {
+      --primary: #6d35e8;
+      --primary-2: #8255f3;
+      --primary-light: #f0ebff;
+      --blue: #4f7cff;
+      --blue-light: #edf2ff;
+      --green: #25b96f;
+      --green-light: #e9f9f0;
+      --orange: #f3a623;
+      --orange-light: #fff3dc;
+      --red: #e55353;
+      --red-light: #fff0f0;
+      --bg: #f8f8fc;
+      --white: #ffffff;
+      --text: #20202a;
+      --text-secondary: #6f7180;
+      --text-muted: #999ba8;
+      --border: #ececf3;
+      --shadow-sm: 0 5px 18px rgba(40, 30, 80, 0.05);
+      --radius-lg: 26px;
+      --radius-md: 22px;
+      --container: 1100px;
+    }
+    [data-theme="dark"] {
+      --primary: #8b5cf6;
+      --primary-2: #a78bfa;
+      --primary-light: #2d1b4e;
+      --blue: #60a5fa;
+      --blue-light: #1a2a4a;
+      --green: #34d399;
+      --green-light: #1a3a2e;
+      --orange: #fbbf24;
+      --orange-light: #3d2e0a;
+      --red: #f87171;
+      --red-light: #3d1a1a;
+      --bg: #0f0f17;
+      --white: #1a1a2e;
+      --text: #f1f1f6;
+      --text-secondary: #a1a1b5;
+      --text-muted: #6b6b80;
+      --border: #2a2a40;
+      --shadow-sm: 0 5px 18px rgba(0, 0, 0, 0.3);
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: "Vazirmatn", sans-serif; background: var(--bg); color: var(--text); min-height: 100vh; -webkit-font-smoothing: antialiased; transition: background .3s ease, color .3s ease; }
+    button { border: 0; cursor: pointer; }
+    a { text-decoration: none; color: inherit; }
+    .app { width: 100%; max-width: var(--container); margin: 0 auto; min-height: 100vh; padding-bottom: 110px; }
+
+    /* ===== هدر دقیقاً مثل index.html ===== */
+    .header {
+      height: 76px;
+      padding: 0 22px;
+      background: var(--white);
+      display: grid;
+      grid-template-columns: 0.9fr auto 1.5fr;
+      align-items: center;
+      position: relative;
+      z-index: 20;
+      transition: background .3s ease;
+    }
+    .header-side { display: flex; align-items: center; gap: 6px; }
+    .header-side.left { justify-content: flex-start; }
+    .header-side.right { justify-content: flex-end; }
+
+    .icon-button {
+      width: 44px;
+      height: 44px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 14px;
+      background: transparent;
+      color: #343441;
+      transition: .2s ease;
+    }
+    [data-theme="dark"] .icon-button { color: #c1c1d1; }
+    .icon-button:hover { background: #f5f3fa; color: var(--primary); }
+    [data-theme="dark"] .icon-button:hover { background: #2a2a40; color: var(--primary-2); }
+
+    .netland-header-logo {
+      width: 190px;
+      height: 75px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      overflow: visible;
+      margin-right: 38px;
+    }
+    .netland-logo-svg {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      display: block;
+      user-select: none;
+      -webkit-user-select: none;
+      -webkit-tap-highlight-color: transparent;
+    }
+    @media (max-width: 700px) { .netland-header-logo { width: 155px; height: 60px; } }
+    @media (max-width: 400px) { .netland-header-logo { width: 140px; height: 55px; } }
+
+    main { padding: 0 20px; }
+
+    .page-hero { margin-top: 20px; padding: 24px 24px; border-radius: var(--radius-lg); background: radial-gradient(circle at 90% 10%, rgba(143, 108, 255, 0.45), transparent 32%), linear-gradient(135deg, #5927d9 0%, #713deb 55%, #8255f3 100%); color: white; box-shadow: 0 14px 35px rgba(86, 42, 180, 0.16); position: relative; overflow: hidden; }
+    .page-hero::after { content: ""; position: absolute; width: 150px; height: 150px; left: -55px; bottom: -75px; border-radius: 50%; background: rgba(255, 255, 255, 0.08); }
+    .page-hero-content { position: relative; z-index: 2; }
+    .page-hero-title { display: flex; align-items: center; gap: 10px; font-size: 23px; font-weight: 800; margin-bottom: 7px; }
+    .page-hero-title svg { flex-shrink: 0; }
+    .page-hero-desc { max-width: 600px; color: rgba(255, 255, 255, 0.82); font-size: 12.5px; line-height: 1.9; }
+
+    .section-header { display: flex; align-items: center; justify-content: space-between; margin-top: 27px; margin-bottom: 14px; flex-wrap: wrap; gap: 8px; }
+    .section-title { display: flex; align-items: center; gap: 9px; font-size: 20px; font-weight: 700; }
+    .section-title svg { color: var(--primary); }
+    .notification-count { min-width: 30px; height: 27px; padding: 0 9px; display: inline-flex; align-items: center; justify-content: center; border-radius: 10px; background: var(--primary-light); color: var(--primary); font-size: 11px; font-weight: 700; }
+    .refresh-btn { width: 40px; height: 40px; display: flex; align-items: center; justify-content: center; border-radius: 12px; background: var(--primary-light); color: var(--primary); transition: .2s ease; }
+    .refresh-btn:hover { background: var(--primary); color: white; }
+    .refresh-btn.loading svg { animation: spin .8s linear infinite; }
+    @keyframes spin { to { transform: rotate(360deg); } }
+
+    .notification-list { display: flex; flex-direction: column; gap: 12px; }
+    .notification-item { display: grid; grid-template-columns: 58px 1fr auto; align-items: center; gap: 14px; padding: 16px; background: var(--white); border: 1px solid var(--border); border-radius: var(--radius-md); box-shadow: var(--shadow-sm); transition: transform .22s ease, box-shadow .22s ease; cursor: pointer; }
+    .notification-item:hover { transform: translateY(-3px); box-shadow: 0 10px 26px rgba(40, 30, 80, 0.08); }
+    .notification-item.no-link { cursor: default; }
+    .notification-item.no-link:hover { transform: none; }
+    .notification-icon { width: 58px; height: 58px; display: flex; align-items: center; justify-content: center; border-radius: 18px; flex-shrink: 0; }
+    .notification-icon.info { background: var(--blue-light); color: var(--blue); }
+    .notification-icon.success { background: var(--green-light); color: var(--green); }
+    .notification-icon.warning { background: var(--orange-light); color: var(--orange); }
+    .notification-icon.default { background: var(--primary-light); color: var(--primary); }
+    .notification-content { min-width: 0; }
+    .notification-title { font-size: 14.5px; font-weight: 800; margin-bottom: 6px; line-height: 1.4; }
+    .notification-message { font-size: 12.5px; line-height: 1.8; color: var(--text-secondary); margin-bottom: 8px; word-break: break-word; }
+    .notification-date { display: flex; align-items: center; gap: 6px; color: var(--text-muted); font-size: 10.5px; }
+    .notification-arrow { width: 36px; height: 36px; display: flex; align-items: center; justify-content: center; border-radius: 11px; background: var(--primary-light); color: var(--primary); flex-shrink: 0; }
+    .notification-item.no-link .notification-arrow { display: none; }
+
+    .loading-state { min-height: 330px; display: flex; align-items: center; justify-content: center; flex-direction: column; padding: 35px 20px; background: var(--white); border: 1px solid var(--border); border-radius: var(--radius-md); }
+    .loading-spinner { width: 38px; height: 38px; border: 3px solid var(--primary-light); border-top-color: var(--primary); border-radius: 50%; animation: spin .8s linear infinite; margin-bottom: 14px; }
+    .loading-text { color: var(--text-muted); font-size: 12px; }
+
+    .empty-state { display: none; min-height: 330px; padding: 35px 20px; align-items: center; justify-content: center; flex-direction: column; text-align: center; background: var(--white); border: 1px solid var(--border); border-radius: var(--radius-md); }
+    .empty-state.show { display: flex; }
+    .empty-icon { width: 82px; height: 82px; display: flex; align-items: center; justify-content: center; border-radius: 25px; background: var(--primary-light); color: var(--primary); margin-bottom: 18px; }
+    .empty-title { font-size: 18px; font-weight: 700; margin-bottom: 7px; }
+    .empty-text { max-width: 390px; color: var(--text-secondary); font-size: 12px; line-height: 1.9; margin-bottom: 20px; }
+    .empty-button { min-height: 44px; padding: 0 19px; display: inline-flex; align-items: center; gap: 8px; border-radius: 14px; background: var(--primary); color: white; font-size: 13px; font-weight: 700; }
+    .empty-button:hover { background: var(--primary-2); }
+
+    .bottom-nav-wrapper { position: fixed; bottom: 0; left: 0; right: 0; z-index: 100; display: flex; justify-content: center; pointer-events: none; }
+    .bottom-nav { width: min(var(--container), 100%); height: 82px; padding: 8px 25px calc(8px + env(safe-area-inset-bottom)); background: var(--white); border-radius: 26px 26px 0 0; box-shadow: 0 -7px 25px rgba(30, 20, 70, 0.07); display: grid; grid-template-columns: repeat(4, 1fr); align-items: center; pointer-events: auto; }
+    .nav-item { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 3px; color: #858693; font-size: 10.5px; font-weight: 500; cursor: pointer; height: 100%; background: transparent; }
+    [data-theme="dark"] .nav-item { color: #6b6b80; }
+    .nav-item.active { color: var(--primary); font-weight: 600; }
+    .nav-icon { width: 25px; height: 25px; display: flex; align-items: center; justify-content: center; }
+    .nav-item.active .nav-icon { width: 46px; height: 42px; border-radius: 15px; color: white; background: var(--primary); }
+
+    .toast { position: fixed; left: 50%; bottom: 102px; transform: translateX(-50%) translateY(12px); z-index: 9999; padding: 11px 18px; border-radius: 14px; background: #20202a; color: white; font-size: 12px; opacity: 0; transition: opacity .25s ease, transform .25s ease; white-space: nowrap; }
+    [data-theme="dark"] .toast { background: #f1f1f6; color: #1a1a2e; }
+    .toast.show { opacity: 1; transform: translateX(-50%) translateY(0); }
+
+    @media (max-width: 700px) {
+      .app { max-width: 100%; }
+      .page-hero { margin-top: 15px; padding: 22px 19px; }
+      .page-hero-title { font-size: 21px; }
+      .notification-item { grid-template-columns: 52px 1fr; gap: 12px; padding: 14px; }
+      .notification-icon { width: 52px; height: 52px; }
+      .notification-arrow { grid-column: 2; justify-self: end; margin-top: -40px; }
+      .bottom-nav { padding-left: 12px; padding-right: 12px; }
+    }
+    @media (max-width: 400px) {
+      main { padding: 0 14px; }
+      .header { padding: 0 14px; }
+      .notification-item { grid-template-columns: 48px 1fr; }
+      .notification-icon { width: 48px; height: 48px; }
+    }
+  </style>
+</head>
+
+<body>
+
+<div class="app">
+
+  <!-- ===== HEADER ===== -->
+  <header class="header">
+
+    <div class="header-side left">
+
+      <button
+        class="icon-button"
+        aria-label="بازگشت"
+        onclick="goBack()"
+      >
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+          <path d="m15 18-6-6 6-6"/>
+        </svg>
+      </button>
+
+    </div>
+
+    <div class="netland-header-logo" aria-label="Net Land">
+      <img
+        src="netland-logo.png"
+        alt="Net Land Logo"
+        class="netland-logo-svg"
+        width="190"
+        height="75"
+      >
+    </div>
+
+    <div class="header-side right"></div>
+
+  </header>
+
+  <main>
+    <section class="page-hero">
+      <div class="page-hero-content">
+        <h1 class="page-hero-title">
+          <svg width="25" height="25" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M18 8a6 6 0 0 0-12 0c0 7-3 7-3 9h18c0-2-3-2-3-9"/>
+            <path d="M10 21h4"/>
+          </svg>
+          <span>اعلان‌ها</span>
+        </h1>
+        <p class="page-hero-desc">آخرین اخبار و اطلاعیه‌های نت لند در این بخش نمایش داده می‌شود.</p>
+      </div>
+    </section>
+
+    <section>
+      <div class="section-header">
+        <h2 class="section-title">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M18 8a6 6 0 0 0-12 0c0 7-3 7-3 9h18c0-2-3-2-3-9"/>
+            <path d="M10 21h4"/>
+          </svg>
+          <span>همه اعلان‌ها</span>
+          <span class="notification-count" id="notifCount">۰</span>
+        </h2>
+        <button class="refresh-btn" id="refreshBtn" onclick="loadNotifications(true)">
+          <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M20 11a8.1 8.1 0 0 0-15.5-3"/>
+            <path d="M4 4v4h4"/>
+            <path d="M4 13a8.1 8.1 0 0 0 15.5 3"/>
+            <path d="M20 20v-4h-4"/>
+          </svg>
+        </button>
+      </div>
+
+      <div class="loading-state" id="loadingState">
+        <div class="loading-spinner"></div>
+        <div class="loading-text">در حال بارگذاری اعلان‌ها...</div>
+      </div>
+
+      <div class="notification-list" id="notificationList"></div>
+
+      <div class="empty-state" id="emptyState">
+        <div class="empty-icon">
+          <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M18 8a6 6 0 0 0-12 0c0 7-3 7-3 9h18c0-2-3-2-3-9"/>
+            <path d="M10 21h4"/>
+          </svg>
+        </div>
+        <h3 class="empty-title">هیچ اعلانی وجود ندارد</h3>
+        <p class="empty-text">به‌محض اینکه اعلان جدیدی ارسال شود، در همین صفحه نمایش داده می‌شود.</p>
+        <button class="empty-button" onclick="window.location.href='festivals.html'">
+          <span>مشاهده جشنواره‌ها</span>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="m9 18 6-6-6-6"/>
+          </svg>
+        </button>
+      </div>
+    </section>
+  </main>
+</div>
+
+<div class="bottom-nav-wrapper">
+  <nav class="bottom-nav">
+    <button class="nav-item" onclick="window.location.href='faq.html'">
+      <span class="nav-icon">
+        <svg width="23" height="23" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="12" cy="12" r="9"/>
+          <path d="M9.5 9a2.5 2.5 0 1 1 4.3 1.7c-.9.9-1.8 1.2-1.8 2.8"/>
+          <path d="M12 17h.01"/>
+        </svg>
+      </span>
+      <span>سوالات متداول</span>
+    </button>
+    <button class="nav-item" onclick="window.location.href='favorites.html'">
+      <span class="nav-icon">
+        <svg width="23" height="23" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M20.8 8.8c0 5.5-8.8 10.2-8.8 10.2S3.2 14.3 3.2 8.8A4.6 4.6 0 0 1 12 6.2a4.6 4.6 0 0 1 8.8 2.6Z"/>
+        </svg>
+      </span>
+      <span>علاقه‌مندی‌ها</span>
+    </button>
+    <button class="nav-item" onclick="window.location.href='festivals.html'">
+      <span class="nav-icon">
+        <svg width="23" height="23" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M20 12v7a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2v-7"/>
+          <path d="M2 7h20v5H2z"/>
+          <path d="M12 22V7"/>
+        </svg>
+      </span>
+      <span>جشنواره‌ها</span>
+    </button>
+    <button class="nav-item" onclick="window.location.href='index.html'">
+      <span class="nav-icon">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="m3 10 9-7 9 7v10a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V10Z"/>
+          <path d="M9 22v-7h6v7"/>
+        </svg>
+      </span>
+      <span>خانه</span>
+    </button>
+  </nav>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script>
+  "use strict";
+
+  // ✅ همه چیز داخل همین فایل!
+  var API_BASE_URL = 'https://net-land-api.zz4591757.workers.dev';
+
+  let allNotifications = [];
+  let toastTimer = null;
+
+  function goBack() {
+    if (history.length > 1) {
+      history.back();
+    } else {
+      window.location.href = 'index.html';
+    }
+  }
+
+  function toPersianDigits(value) {
+    const digits = "۰۱۲۳۴۵۶۷۸۹";
+    return String(value).replace(/\d/g, d => digits[Number(d)]);
+  }
+
+  function escapeHtml(value) {
+    return String(value || "")
+      .replaceAll("&", "&amp;")
+      .replaceAll("<", "&lt;")
+      .replaceAll(">", "&gt;")
+      .replaceAll('"', "&quot;")
+      .replaceAll("'", "&#039;");
+  }
+
+  function getIcon(type) {
+    if (type === "success") {
+      return `<svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>`;
+    }
+    if (type === "warning") {
+      return `<svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3Z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>`;
+    }
+    if (type === "info") {
+      return `<svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>`;
+    }
+    return `<svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8a6 6 0 0 0-12 0c0 7-3 7-3 9h18c0-2-3-2-3-9"/><path d="M10 21h4"/></svg>`;
+  }
+
+  function formatDate(iso) {
+    if (!iso) return "";
+    try {
+      const d = new Date(iso);
+      const now = new Date();
+      const diffMs = now - d;
+      const diffMin = Math.floor(diffMs / 60000);
+      const diffHr = Math.floor(diffMs / 3600000);
+      const diffDay = Math.floor(diffMs / 86400000);
+      if (diffMin < 1) return "همین الان";
+      if (diffMin < 60) return toPersianDigits(diffMin) + " دقیقه پیش";
+      if (diffHr < 24) return toPersianDigits(diffHr) + " ساعت پیش";
+      if (diffDay < 7) return toPersianDigits(diffDay) + " روز پیش";
+      return d.toLocaleDateString("fa-IR", { year: "numeric", month: "long", day: "numeric" });
+    } catch (e) { return ""; }
+  }
+
+  function getCalendarIcon() {
+    return `<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4"/><path d="M8 2v4"/><path d="M3 10h18"/></svg>`;
+  }
+
+  function createNotificationItem(n) {
+    const type = n.type || "info";
+    const hasLink = n.targetUrl && n.targetUrl.trim() !== "";
+    const item = document.createElement("article");
+    item.className = "notification-item" + (hasLink ? "" : " no-link");
+    const iconClass = ["info", "success", "warning"].includes(type) ? type : "default";
+
+    item.innerHTML = `
+      <div class="notification-icon ${iconClass}">${getIcon(type)}</div>
+      <div class="notification-content">
+        <div class="notification-title">${escapeHtml(n.title || "بدون عنوان")}</div>
+        <div class="notification-message">${escapeHtml(n.message || "")}</div>
+        <div class="notification-date">
+          ${getCalendarIcon()}
+          <span>${formatDate(n.createdAt)}</span>
+        </div>
+      </div>
+      ${hasLink ? `<div class="notification-arrow"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6"/></svg></div>` : ""}
+    `;
+
+    if (hasLink) {
+      item.addEventListener("click", () => { window.location.href = n.targetUrl.trim(); });
+    }
+
+    return item;
+  }
+
+  async function loadNotifications(showLoading = false) {
+    const list = document.getElementById("notificationList");
+    const emptyState = document.getElementById("emptyState");
+    const loadingState = document.getElementById("loadingState");
+    const countEl = document.getElementById("notifCount");
+    const refreshBtn = document.getElementById("refreshBtn");
+
+    if (showLoading) refreshBtn.classList.add("loading");
+
+    if (allNotifications.length === 0) {
+      loadingState.style.display = "flex";
+      emptyState.classList.remove("show");
+      list.innerHTML = "";
+    }
+
+    try {
+      const response = await fetch(`${API_BASE_URL}/api/notifications`);
+      const data = await response.json();
+      allNotifications = data.notifications || [];
+
+      countEl.textContent = toPersianDigits(allNotifications.length);
+      loadingState.style.display = "none";
+
+      if (allNotifications.length === 0) {
+        list.innerHTML = "";
+        emptyState.classList.add("show");
+        return;
+      }
+
+      emptyState.classList.remove("show");
+
+      allNotifications.sort((a, b) => {
+        const dateA = a.createdAt ? new Date(a.createdAt).getTime() : 0;
+        const dateB = b.createdAt ? new Date(b.createdAt).getTime() : 0;
+        return dateB - dateA;
+      });
+
+      list.innerHTML = "";
+      allNotifications.forEach(n => { list.appendChild(createNotificationItem(n)); });
+
+      if (showLoading) showToast("اعلان‌ها بروزرسانی شدند ✓");
+
+    } catch (error) {
+      console.error("❌ خطا:", error);
+      loadingState.style.display = "none";
+      list.innerHTML = `
+        <div class="empty-state show">
+          <div class="empty-icon">
+            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+          </div>
+          <h3 class="empty-title">خطا در دریافت اعلان‌ها</h3>
+          <p class="empty-text">اتصال اینترنت خود را بررسی کنید و دوباره تلاش کنید.</p>
+        </div>
+      `;
+      showToast("خطا در بارگذاری");
+    } finally {
+      refreshBtn.classList.remove("loading");
+    }
+  }
+
+  function showToast(message) {
+    const toast = document.getElementById("toast");
+    toast.textContent = message;
+    toast.classList.add("show");
+    clearTimeout(toastTimer);
+    toastTimer = setTimeout(() => toast.classList.remove("show"), 2200);
+  }
+
+  document.addEventListener("DOMContentLoaded", () => {
+    // ⬇️ علامت‌گذاری: کاربر همه اعلان‌ها رو دید
+    try {
+      localStorage.setItem("netland_lastSeenNotificationAt", String(Date.now()));
+    } catch (e) {}
+
+    loadNotifications(false);
+  });
+</script>
+
+</body>
+
+</html>
